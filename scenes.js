@@ -94,7 +94,7 @@ const SCENES = [
     items: [
       {
         n: 1,
-        x: 0.34, y: 0.42,
+        x: 0.34, y: 0.56,
         verdict: "invented",
         label: "The figure in the long-beaked bird mask",
         explanation:
@@ -156,7 +156,7 @@ const SCENES = [
       },
       {
         n: 2,
-        x: 0.215, y: 0.24,
+        x: 0.265, y: 0.22,
         verdict: "authentic",
         label: "The bound books stacked on the shelf",
         explanation:
@@ -202,7 +202,7 @@ const SCENES = [
       },
       {
         n: 2,
-        x: 0.50, y: 0.33,
+        x: 0.223, y: 0.457dd,
         verdict: "invented",
         label: "The high-backed chair the emperor sits on",
         explanation:
@@ -218,7 +218,7 @@ const SCENES = [
       },
       {
         n: 4,
-        x: 0.50, y: 0.30,
+        x: 0.105, y: 0.407,
         verdict: "invented",
         label: "The emperor's yellow robes",
         explanation:
@@ -247,7 +247,7 @@ const SCENES = [
       },
       {
         n: 2,
-        x: 0.45, y: 0.62,
+        x: 0.44, y: 0.81dd,
         verdict: "invented",
         label: "The bound books in the monks' hands",
         explanation:
@@ -255,7 +255,7 @@ const SCENES = [
       },
       {
         n: 3,
-        x: 0.72, y: 0.72,
+        x: 0.896, y: 0.525,
         verdict: "authentic",
         label: "The flowering groves in the grounds",
         explanation:
@@ -339,7 +339,7 @@ const SCENES = [
       },
       {
         n: 3,
-        x: 0.50, y: 0.62,
+        x: 0.25, y: 0.6,
         verdict: "disputed",
         label: "The sheer size of the ship",
         explanation:
