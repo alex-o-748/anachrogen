@@ -361,6 +361,22 @@ kbd {
   object-fit: contain;
   background: #14100c;
 }
+.reference-error {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  color: #e8dcc4;
+  padding: 24px;
+}
+.reference-error p { margin: 0; font-family: var(--serif); font-size: 1.2rem; }
+.reference-error a { color: #9effa0; font-size: 1rem; text-decoration: underline; }
+
 .reference-bar {
   flex: 0 0 auto;
   background: rgba(20, 16, 12, 0.92);

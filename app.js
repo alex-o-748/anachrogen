@@ -28,11 +28,13 @@
   const canvasWrap  = document.querySelector(".canvas-wrap");
   const readoutEl   = document.getElementById("author-readout");
 
-  const referenceEl      = document.getElementById("reference");
-  const referenceImg     = document.getElementById("reference-img");
-  const referenceCaption = document.getElementById("reference-caption");
-  const referenceCredit  = document.getElementById("reference-credit");
-  const referenceClose   = document.getElementById("reference-close");
+  const referenceEl        = document.getElementById("reference");
+  const referenceImg       = document.getElementById("reference-img");
+  const referenceCaption   = document.getElementById("reference-caption");
+  const referenceCredit    = document.getElementById("reference-credit");
+  const referenceClose     = document.getElementById("reference-close");
+  const referenceError     = document.getElementById("reference-error");
+  const referenceErrorLink = document.getElementById("reference-error-link");
 
   const btnBack    = document.getElementById("btn-back");
   const btnReset   = document.getElementById("btn-reset");
@@ -213,9 +215,11 @@
     const ref = scene.reference;
     btnCompare.hidden = !ref;
     referenceImg.removeAttribute("src");   // load lazily on first compare
+    referenceError.hidden = true;          // clear any prior load-failure state
     if (ref) {
       referenceCaption.textContent = ref.caption || "";
       referenceImg.alt = ref.alt || (scene.title + " — real reference image");
+      referenceErrorLink.href = ref.href || ref.image;
       if (ref.href) {
         referenceCredit.textContent = ref.credit || "Source";
         referenceCredit.href = ref.href;
@@ -234,6 +238,7 @@
   function setComparing(on) {
     comparing = on && !!(current && current.reference);
     if (comparing && !referenceImg.getAttribute("src")) {
+      referenceError.hidden = true;
       referenceImg.src = current.reference.image;   // lazy first load
     }
     referenceEl.hidden = !comparing;
@@ -323,6 +328,8 @@
   btnCompare.addEventListener("click", toggleCompare);
   btnNext.addEventListener("click", revealNext);
   referenceClose.addEventListener("click", () => setComparing(false));
+  referenceImg.addEventListener("load",  () => { referenceError.hidden = true;  });
+  referenceImg.addEventListener("error", () => { referenceError.hidden = false; });
   imgEl.addEventListener("click", onAuthorClick);
   document.addEventListener("keydown", onKey);
 
