@@ -153,34 +153,42 @@ const SCENES = [
     location: "Alexandria, Roman Egypt",
     image: "Hypatia(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
-    // NOTE: Hypatia's answer key is not written yet. The markers below sit on
-    // candidate details so the scene is playable as a demo, but every verdict is
-    // "todo" and the explanations are placeholders. Replace verdict + explanation
-    // (and adjust labels/positions) once the facilitator supplies the real key.
+    // Answer key supplied by the facilitator: 2 anachronisms (paper flip-chart /
+    // notebooks, and Hypatia's clothing) + 2 authentic decoys (codices, armillary
+    // sphere). NOTE: please confirm the intended reason for the clothing verdict —
+    // the explanation on item 4 is a draft.
     items: [
       {
         n: 1,
         x: 0.545, y: 0.42,
-        verdict: "todo",
-        label: "The large paper diagram on the standing easel",
+        verdict: "invented",
+        label: "The large paper pad on the standing easel",
         explanation:
-          "Answer key pending — to be supplied by the facilitator.",
+          "Invented. A big paper pad on an easel — and the paper notebooks people are writing in — is a modern lecture prop. Pulp paper didn't reach the Mediterranean for centuries; a teacher in ~400 CE Alexandria would sketch on a wax tablet or dust-board and read from papyrus scrolls or parchment codices.",
       },
       {
         n: 2,
         x: 0.215, y: 0.24,
-        verdict: "todo",
-        label: "The bound leather books on the shelf",
+        verdict: "authentic",
+        label: "The bound books stacked on the shelf",
         explanation:
-          "Answer key pending — to be supplied by the facilitator.",
+          "Authentic. By ~400 CE the bound codex was already displacing the scroll across late antiquity, so books in this bound form are period-correct — even though they read as 'medieval.'",
       },
       {
         n: 3,
         x: 0.085, y: 0.40,
-        verdict: "todo",
-        label: "The ornate brass armillary sphere",
+        verdict: "authentic",
+        label: "The brass armillary sphere at the left",
         explanation:
-          "Answer key pending — to be supplied by the facilitator.",
+          "Authentic. The armillary sphere goes back to Hellenistic astronomers such as Hipparchus and Eratosthenes, so one beside Hypatia — a celebrated astronomer and mathematician — is entirely plausible.",
+      },
+      {
+        n: 4,
+        x: 0.38, y: 0.47,
+        verdict: "invented",
+        label: "The draped gown Hypatia is wearing",
+        explanation:
+          "Invented. The clean white-and-gold 'Grecian goddess' gown owes more to 19th-century Romantic paintings of Hypatia than to late-Roman Alexandrian dress; a woman of her rank in Christianizing ~400 CE Egypt would more likely wear a fuller tunica with a palla, and probably a veil. (Facilitator: confirm the intended reason.)",
       },
     ],
   },
