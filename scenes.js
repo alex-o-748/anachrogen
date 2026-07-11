@@ -152,7 +152,7 @@ const SCENES = [
         verdict: "invented",
         label: "The large flip-chart pad on the standing easel",
         explanation:
-          "Invented. A big flip-chart pad on an easel — and the notebooks people are writing in — is a modern lecture prop. Pulp paper didn't reach the Mediterranean for centuries; and even a papyrus 'pad' of this size is unrealistic, since papyrus was far too costly to gesture through by the sheet. A teacher in ~400 CE Alexandria would sketch on a reusable wax tablet or dust-board and read from papyrus scrolls or parchment codices.",
+          "Invented. A big flip-chart pad on an easel — and the notebooks people are writing in — is a modern lecture prop. Pulp paper didn't reach the Mediterranean for centuries; and even a papyrus 'pad' of this size is unrealistic, since papyrus was far too costly to gesture through by the sheet. A teacher in ~400 CE Alexandria would sketch on a reusable wax tablet or dust-board.",
       },
       {
         n: 2,
