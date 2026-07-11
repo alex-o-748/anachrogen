@@ -186,11 +186,10 @@ const SCENES = [
     title: "Zhang Heng's Seismoscope",
     date: "132 CE",
     location: "Eastern Han court · Luoyang, China",
-    image: "assets/Zhang%20Heng%20Seismoscope.png",
+    image: "assets/Seismoscope.png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
-    // NOTE: the image for THIS scene is not yet in the repo — add it at the path
-    // above (assets/Zhang Heng Seismoscope.png) or the card will show broken.
-    // Marker x,y below are also PLACEHOLDERS; re-place with author mode (press "D").
+    // NOTE: marker x,y below are PLACEHOLDERS — re-place each with author mode
+    // (press "D", click the image, paste the copied x,y).
     // Verdicts are deliberately interleaved so the reveal order doesn't tip the game.
     items: [
       {
