@@ -257,7 +257,7 @@ const SCENES = [
         n: 3,
         x: 0.72, y: 0.72,
         verdict: "authentic",
-        label: "The lotus ponds and flowering groves in the grounds",
+        label: "The flowering groves in the grounds",
         explanation:
           "Authentic. Xuanzang specifically describes Nalanda's lakes of blue lotus and its groves of flowering mango — among the best-attested features of the site.",
       },
@@ -265,9 +265,9 @@ const SCENES = [
         n: 4,
         x: 0.25, y: 0.40,
         verdict: "invented",
-        label: "The red-brick buildings",
+        label: "The red-brick architecture",
         explanation:
-          "Invented. The exposed red-brick look is the modern archaeological site as it stands today. In 700 CE the buildings were plastered, stuccoed and painted; Xuanzang describes ornamented, coloured buildings, and stucco traces survive. The model dressed up the ruined present of the place, not its living form.",
+          "Invented. The exposed red-brick look is the modern archaeological site as it stands today — the left structure is recognisably the Sariputra stupa (Temple 3) as excavated. In 700 CE the buildings were plastered, stuccoed and painted; Xuanzang describes ornamented, coloured buildings, and stucco traces survive. The model dressed up the ruined present of the place, not its living form.",
       },
     ],
   },
