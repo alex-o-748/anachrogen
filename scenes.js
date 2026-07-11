@@ -32,7 +32,7 @@ const SCENES = [
     title: "Cahokia",
     date: "~1100 CE",
     location: "Mississippian culture · near present-day St. Louis",
-    image: "Cahokia(1).png",
+    image: "assets/Cahokia(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
     // Verdicts are deliberately interleaved (not all anachronisms first) so the
     // reveal order doesn't give the game away.
@@ -86,7 +86,7 @@ const SCENES = [
     title: "The Black Death in Paris",
     date: "1348",
     location: "Paris, during the plague",
-    image: "Black%20Death%20in%20Paris(1).png",
+    image: "assets/Black%20Death%20in%20Paris(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
     // Verdicts are deliberately interleaved (not all anachronisms first) so the
     // reveal order doesn't give the game away.
@@ -140,7 +140,7 @@ const SCENES = [
     title: "Hypatia of Alexandria",
     date: "~400 CE",
     location: "Alexandria, Roman Egypt",
-    image: "Hypatia(1).png",
+    image: "assets/Hypatia(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
     // Answer key supplied by the facilitator: 2 anachronisms (the flip-chart pad /
     // notebooks, and Hypatia's clothing) + 2 authentic decoys (codices, armillary
@@ -186,11 +186,11 @@ const SCENES = [
     title: "Zhang Heng's Seismoscope",
     date: "132 CE",
     location: "Eastern Han court · Luoyang, China",
-    image: "Zhang%20Heng%20Seismoscope(1).png",
+    image: "assets/Zhang%20Heng%20Seismoscope.png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
-    // NOTE: image file not yet in the repo; marker x,y below are PLACEHOLDERS.
-    // Drop the PNG in at the path above, then re-place each marker with author
-    // mode (press "D", click the image, paste the copied x,y).
+    // NOTE: the image for THIS scene is not yet in the repo — add it at the path
+    // above (assets/Zhang Heng Seismoscope.png) or the card will show broken.
+    // Marker x,y below are also PLACEHOLDERS; re-place with author mode (press "D").
     // Verdicts are deliberately interleaved so the reveal order doesn't tip the game.
     items: [
       {
@@ -241,10 +241,10 @@ const SCENES = [
     title: "Nalanda at its Height",
     date: "~700 CE",
     location: "Mahavihara (monastic university) · Magadha, India",
-    image: "Nalanda(1).png",
+    image: "assets/Nalanda.png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
-    // NOTE: image file not yet in the repo; marker x,y below are PLACEHOLDERS.
-    // Drop the PNG in, then re-place each marker with author mode (press "D").
+    // NOTE: marker x,y below are PLACEHOLDERS — re-place each with author mode
+    // (press "D", click the image, paste the copied x,y).
     items: [
       {
         n: 1,
@@ -294,10 +294,10 @@ const SCENES = [
     title: "Lovelace, Babbage & the Analytical Engine",
     date: "1830s–40s",
     location: "London",
-    image: "Analytical%20Engine(1).png",
+    image: "assets/Lovelace.png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
-    // NOTE: image file not yet in the repo; marker x,y below are PLACEHOLDERS.
-    // Drop the PNG in, then re-place each marker with author mode (press "D").
+    // NOTE: marker x,y below are PLACEHOLDERS — re-place each with author mode
+    // (press "D", click the image, paste the copied x,y).
     items: [
       {
         n: 1,
@@ -347,10 +347,10 @@ const SCENES = [
     title: "Zheng He's Treasure Fleet",
     date: "~1410",
     location: "Ming dynasty · China",
-    image: "Treasure%20Fleet(1).png",
+    image: "assets/Treasure%20fleet.png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
-    // NOTE: image file not yet in the repo; marker x,y below are PLACEHOLDERS.
-    // Drop the PNG in, then re-place each marker with author mode (press "D").
+    // NOTE: marker x,y below are PLACEHOLDERS — re-place each with author mode
+    // (press "D", click the image, paste the copied x,y).
     // This is the "disputed sources" round: the size figures come from the same
     // contested accounts any verdict has to cite — that recursion is the lesson.
     items: [
