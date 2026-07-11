@@ -283,8 +283,37 @@ kbd {
   transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
 }
 
+/* Sources (Wikipedia links) — collapsed with the explanation until revealed */
+.item-sources {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+.sources-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.source-link {
+  font-size: 0.9rem;
+  color: #2f5d7d;                    /* link blue — distinct from verdict colors */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.source-link:hover { color: var(--ink); }
+
 .item.revealed { border-left-color: var(--todo); }
 .item.revealed .item-explain { max-height: 340px; opacity: 1; margin-top: 9px; }
+.item.revealed .item-sources { max-height: 120px; opacity: 1; margin-top: 8px; }
 
 .item.revealed.v-invented  { border-left-color: var(--invented); }
 .item.revealed.v-disputed  { border-left-color: var(--disputed); }

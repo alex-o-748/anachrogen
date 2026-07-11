@@ -115,7 +115,8 @@
           <span class="item-label">${escapeHtml(item.label)}</span>
           <span class="badge v-${item.verdict}" hidden>${VERDICT_LABEL[item.verdict] || "?"}</span>
         </div>
-        <p class="item-explain">${escapeHtml(item.explanation)}</p>`;
+        <p class="item-explain">${escapeHtml(item.explanation)}</p>
+        ${sourcesHtml(item.sources)}`;
       li.addEventListener("click", () => focusItem(item.n));
       listEl.appendChild(li);
     });
@@ -255,6 +256,20 @@
         if (SCENES[idx]) { e.preventDefault(); openScene(SCENES[idx]); }
       }
     }
+  }
+
+  // Render the optional "Sources" links for an item (Wikipedia articles).
+  // Only http(s) URLs are emitted, and everything is escaped, so nothing in
+  // scenes.js can inject markup. Collapsed until the item is revealed (see CSS).
+  function sourcesHtml(sources) {
+    if (!Array.isArray(sources) || sources.length === 0) return "";
+    const links = sources
+      .filter((s) => s && /^https?:\/\//i.test(s.url))
+      .map((s) =>
+        `<a class="source-link" href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.title || s.url)}</a>`
+      );
+    if (links.length === 0) return "";
+    return `<p class="item-sources"><span class="sources-label">Sources</span>${links.join("")}</p>`;
   }
 
   function escapeHtml(s) {

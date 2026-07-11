@@ -66,6 +66,10 @@ All content lives in **`scenes.js`** — it's the only file you edit.
    a `verdict` (`"invented"`, `"disputed"`, `"authentic"`, or `"todo"`), a
    **neutral** `label` (don't give the answer away), and an `explanation` shown on
    reveal.
+4. Optionally add a `sources` list of `{ title, url }` — Wikipedia articles that
+   back the explanation. They appear as links under the explanation **on reveal**
+   (so they never give the answer away up front), and let the room check the
+   sourcing themselves. The existing scenes are already sourced this way.
 
 **Placing markers the easy way:** open the scene, press `D` for author mode, and
 click on the image where you want a marker. The exact `x: …, y: …` is shown and
