@@ -222,7 +222,7 @@ const SCENES = [
         verdict: "invented",
         label: "The emperor's yellow robes",
         explanation:
-          "Invented. Bright imperial yellow as the emperor's exclusive colour is a later Tang-and-after convention. The Eastern Han venerated the Fire phase (red), and its court dress didn't privilege yellow the way the picture does — the signal-yellow robe reads the later 'only the emperor wears yellow' rule back onto a court that never followed it.",
+          "Invented. Bright imperial yellow as the emperor's exclusive colour is a later convention. The Eastern Han venerated the Fire phase (red), and its court dress didn't privilege yellow the way the picture does. In fact the yellow colour was used by the Yellow Turban rebels who fatally weakened the Eastern Han dynasty.",
       },
     ],
   },
