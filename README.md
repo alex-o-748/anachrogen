@@ -61,8 +61,8 @@ exactly the detail under discussion before revealing it.
 
 All content lives in **`scenes.js`** — it's the only file you edit.
 
-1. Add the image to the repo (the three that ship live at the repo root; a
-   subfolder such as `images/` works too — just match the `image` path).
+1. Add the image to the repo under `assets/` (that's where the scene images live;
+   any path works as long as it matches the `image` field).
 2. Copy an existing scene block and fill in `id`, `title`, `date`, `location`,
    `image` (URL-encode spaces, e.g. `My%20Scene.png`), and the `items` list.
 3. Each item needs a marker position (`x`, `y` as fractions of the image, `0`–`1`),
@@ -82,3 +82,14 @@ copied to your clipboard — paste it straight into the item. Press `D` again to
 - **Hypatia of Alexandria** — the answer key is not written yet. Its markers sit on
   candidate details as a demo, but every verdict is `"todo"` (shown as a grey
   "Pending" badge). Replace them once the real key is ready.
+- **Nalanda at its Height**, **Lovelace, Babbage & the Analytical Engine**, and
+  **Zheng He's Treasure Fleet** — answer keys are written and the images are in
+  `assets/`, but the marker `x, y` coordinates are still **placeholders**: open
+  each scene and re-place the markers with author mode (press `D`). Two verdicts
+  are deliberately left as `"todo"` pending a source check: the emperor's robe
+  colour (Zhang Heng) and the single-character `明` banner (Treasure Fleet).
+- **Zhang Heng's Seismoscope** — answer key written, but its **image is not yet in
+  the repo**. Add it at `assets/Zhang Heng Seismoscope.png` (or update the `image`
+  path in `scenes.js`), then place the markers. Until then the card shows broken.
+
+All scene images live under **`assets/`**.
