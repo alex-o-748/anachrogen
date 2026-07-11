@@ -12,8 +12,9 @@
  *                x = 0 is the left edge, 1 the right edge; y = 0 top, 1 bottom.
  *                Tip: open the app, press "D" for author mode, then click the
  *                image — the x,y under your cursor is copied to the clipboard.
- *   verdict:     "invented"  -> anachronism the model fabricated   (red badge)
- *                "disputed"  -> anachronism, but contested/uncertain (amber badge)
+ *   verdict:     "invented"  -> the model got it wrong: an anachronism, or an
+ *                              inaccuracy that contradicts the evidence (red badge)
+ *                "disputed"  -> likely wrong, but contested/uncertain  (amber badge)
  *                "authentic" -> real & period-correct, just looks wrong (green badge)
  *                "todo"      -> answer key not written yet          (grey "Pending")
  *   label:       NEUTRAL description shown up front. Must NOT reveal the verdict,
@@ -153,10 +154,11 @@ const SCENES = [
     location: "Alexandria, Roman Egypt",
     image: "Hypatia(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
-    // Answer key supplied by the facilitator: 2 anachronisms (paper flip-chart /
-    // notebooks, and Hypatia's clothing) + 2 authentic decoys (codices, armillary
-    // sphere). NOTE: please confirm the intended reason for the clothing verdict —
-    // the explanation on item 4 is a draft.
+    // Answer key supplied by the facilitator: 2 "invented" details (the paper
+    // flip-chart / notebooks — a true anachronism — and Hypatia's clothing, which
+    // is less an anachronism than an inaccurate, Romanticized depiction) + 2
+    // authentic decoys (codices, armillary sphere). NOTE: please confirm the
+    // intended reason for the clothing verdict — the explanation on item 4 is a draft.
     items: [
       {
         n: 1,

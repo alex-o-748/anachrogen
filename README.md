@@ -2,7 +2,9 @@
 
 A quick, projector-friendly party game for a room full of people: look at an
 AI-generated illustration of a historical scene and decide, for each marked
-detail, whether it is **authentic** or an **anachronism the model invented**.
+detail, whether it is **authentic** or something the **model got wrong**. Some
+of the model's mistakes are true anachronisms (something from the wrong era);
+others are just inaccuracies that contradict the historical evidence.
 
 Built for a ~15-minute Wikipedia-conference session with a few dozen people and
 one shared screen. No accounts, no backend, no build step — it's plain HTML, CSS
@@ -18,8 +20,9 @@ and JavaScript.
 3. **Debate each item** with the room — a show of hands per marker works well.
 4. **Reveal** the verdicts one at a time. Each gets a colored badge and a one-line
    explanation:
-   - 🔴 **Anachronism** — the model invented it (wrong era/culture).
-   - 🟠 **Disputed** — anachronistic but genuinely contested.
+   - 🔴 **Invented** — the model got it wrong, whether a true anachronism (wrong
+     era/culture) or an inaccuracy that contradicts the historical evidence.
+   - 🟠 **Disputed** — likely wrong, but genuinely contested.
    - 🟢 **Authentic** — real and period-correct, even if it looks wrong.
 
 Three scenes ≈ 15 minutes with discussion.
@@ -73,7 +76,7 @@ copied to your clipboard — paste it straight into the item. Press `D` again to
 
 ## Content status
 
-- **Cahokia** and **The Black Death in Paris** — the anachronisms come from the
+- **Cahokia** and **The Black Death in Paris** — the invented details come from the
   session author; the *authentic decoys* were drafted here and are flagged with a
   comment in `scenes.js` — please verify them before presenting.
 - **Hypatia of Alexandria** — the answer key is not written yet. Its markers sit on
