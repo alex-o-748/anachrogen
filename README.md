@@ -82,3 +82,10 @@ copied to your clipboard — paste it straight into the item. Press `D` again to
 - **Hypatia of Alexandria** — the answer key is not written yet. Its markers sit on
   candidate details as a demo, but every verdict is `"todo"` (shown as a grey
   "Pending" badge). Replace them once the real key is ready.
+- **Zhang Heng's Seismoscope**, **Nalanda at its Height**, **Lovelace, Babbage &
+  the Analytical Engine**, and **Zheng He's Treasure Fleet** — answer keys are
+  written, but the **image files are not yet in the repo** and the marker `x, y`
+  coordinates are **placeholders**. Drop each PNG in at the `image` path given in
+  `scenes.js`, then re-place the markers with author mode (press `D`). Two verdicts
+  are deliberately left as `"todo"` pending a source check: the emperor's robe
+  colour (Zhang Heng) and the single-character `明` banner (Treasure Fleet).
