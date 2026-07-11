@@ -251,7 +251,7 @@ const SCENES = [
         verdict: "invented",
         label: "The bound books in the monks' hands",
         explanation:
-          "Invented. Indian manuscripts of 700 CE were pothi — loose oblong palm-leaf folios strung between wooden boards and read horizontally, not bound codices with a spine. The bound book arrives in India centuries later. There's a nice resonance here: a great knowledge institution whose actual book format the model can't picture.",
+          "Invented. Indian manuscripts of 700 CE were pothi — loose oblong palm-leaf folios strung between wooden boards and read horizontally, not bound codices with a spine. The bound book arrives in India centuries later.",
       },
       {
         n: 3,
@@ -267,7 +267,7 @@ const SCENES = [
         verdict: "invented",
         label: "The red-brick buildings",
         explanation:
-          "Invented. The exposed red-brick look is the modern archaeological site as it stands today — the left structure is recognisably the Sariputra stupa (Temple 3) as excavated. In 700 CE the buildings were plastered, stuccoed and painted; Xuanzang describes ornamented, coloured buildings, and stucco traces survive. The model dressed up the ruined present of the place, not its living form.",
+          "Invented. The exposed red-brick look is the modern archaeological site as it stands today. In 700 CE the buildings were plastered, stuccoed and painted; Xuanzang describes ornamented, coloured buildings, and stucco traces survive. The model dressed up the ruined present of the place, not its living form.",
       },
     ],
   },
@@ -294,7 +294,7 @@ const SCENES = [
         n: 2,
         x: 0.70, y: 0.55,
         verdict: "invented",
-        label: "The machine's uniform columns of stacked figure-wheels",
+        label: "The analytical engine",
         explanation:
           "Invented — it's the wrong engine. Uniform columns of stacked figure-wheels are the Difference Engine (echoing the Science Museum's completed No. 2, the dominant image online). The Analytical Engine — the one that would have been a computer — had a separate 'mill' and 'store' at room scale, and was never built.",
       },
@@ -302,7 +302,7 @@ const SCENES = [
         n: 3,
         x: 0.45, y: 0.30,
         verdict: "invented",
-        label: "The apparent ages of the two figures together",
+        label: "The two figures together",
         explanation:
           "Invented — an impossible pairing. Ada is the ~20-year-old of the 1836 Carpenter portrait; Babbage is the grey man of the 1860s photographs. Each face is faithful to a real source, but the combination can't exist: when she looked like that he was in his mid-40s, and by the time he looked like that she had been dead a decade.",
       },
