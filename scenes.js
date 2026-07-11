@@ -62,14 +62,6 @@ const SCENES = [
       // --- Authentic decoys below: DRAFTED — please verify before the session. ---
       {
         n: 4,
-        x: 0.42, y: 0.43,
-        verdict: "authentic",
-        label: "The upright wooden palisade of posts",
-        explanation:
-          "Authentic. Cahokia was ringed by a large bastioned log stockade, rebuilt several times — a wooden palisade like this is well attested.",
-      },
-      {
-        n: 5,
         x: 0.925, y: 0.44,
         verdict: "authentic",
         label: "The steep thatched-roof buildings",
@@ -77,7 +69,7 @@ const SCENES = [
           "Authentic. Mississippian buildings were pole-frame structures with thatched or mat-covered roofs; the form is broadly right for the period.",
       },
       {
-        n: 6,
+        n: 5,
         x: 0.155, y: 0.82,
         verdict: "authentic",
         label: "The hand-built pottery worked in the foreground",
@@ -136,14 +128,6 @@ const SCENES = [
         explanation:
           "Authentic. With mortality overwhelming the city, corpses were collected by cart for mass burial — a grimly accurate detail of the 1348 outbreak.",
       },
-      {
-        n: 6,
-        x: 0.30, y: 0.16,
-        verdict: "authentic",
-        label: "The half-timbered (timber-framed) houses",
-        explanation:
-          "Authentic. Timber-framed 'colombage' houses with jettied upper floors were typical of medieval Paris streets in this period.",
-      },
     ],
   },
 
@@ -154,19 +138,17 @@ const SCENES = [
     location: "Alexandria, Roman Egypt",
     image: "Hypatia(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
-    // Answer key supplied by the facilitator: 2 "invented" details (the paper
-    // flip-chart / notebooks — a true anachronism — and Hypatia's clothing, which
-    // is less an anachronism than an inaccurate, Romanticized depiction) + 2
-    // authentic decoys (codices, armillary sphere). NOTE: please confirm the
-    // intended reason for the clothing verdict — the explanation on item 4 is a draft.
+    // Answer key supplied by the facilitator: 2 anachronisms (the flip-chart pad /
+    // notebooks, and Hypatia's clothing) + 2 authentic decoys (codices, armillary
+    // sphere).
     items: [
       {
         n: 1,
         x: 0.545, y: 0.42,
         verdict: "invented",
-        label: "The large paper pad on the standing easel",
+        label: "The large flip-chart pad on the standing easel",
         explanation:
-          "Invented. A big paper pad on an easel — and the paper notebooks people are writing in — is a modern lecture prop. Pulp paper didn't reach the Mediterranean for centuries; a teacher in ~400 CE Alexandria would sketch on a wax tablet or dust-board and read from papyrus scrolls or parchment codices.",
+          "Invented. A big flip-chart pad on an easel — and the notebooks people are writing in — is a modern lecture prop. Pulp paper didn't reach the Mediterranean for centuries; and even a papyrus 'pad' of this size is unrealistic, since papyrus was far too costly to gesture through by the sheet. A teacher in ~400 CE Alexandria would sketch on a reusable wax tablet or dust-board and read from papyrus scrolls or parchment codices.",
       },
       {
         n: 2,
@@ -190,7 +172,7 @@ const SCENES = [
         verdict: "invented",
         label: "The draped gown Hypatia is wearing",
         explanation:
-          "Invented. The clean white-and-gold 'Grecian goddess' gown owes more to 19th-century Romantic paintings of Hypatia than to late-Roman Alexandrian dress; a woman of her rank in Christianizing ~400 CE Egypt would more likely wear a fuller tunica with a palla, and probably a veil. (Facilitator: confirm the intended reason.)",
+          "Invented. The clean white-and-gold 'Grecian goddess' gown owes more to 19th-century Romantic paintings of Hypatia than to how she actually dressed. Our sources describe Hypatia as notably modest: she went about in the tribon, the plain philosopher's cloak, rather than any fine gown — a deliberate mark of her standing as a philosopher.",
       },
     ],
   },
