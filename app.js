@@ -8,7 +8,7 @@
   "use strict";
 
   const VERDICT_LABEL = {
-    invented:  "Anachronism",
+    invented:  "Invented",
     disputed:  "Disputed",
     authentic: "Authentic",
     todo:      "Pending",

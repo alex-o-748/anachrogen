@@ -12,8 +12,9 @@
  *                x = 0 is the left edge, 1 the right edge; y = 0 top, 1 bottom.
  *                Tip: open the app, press "D" for author mode, then click the
  *                image — the x,y under your cursor is copied to the clipboard.
- *   verdict:     "invented"  -> anachronism the model fabricated   (red badge)
- *                "disputed"  -> anachronism, but contested/uncertain (amber badge)
+ *   verdict:     "invented"  -> the model got it wrong: an anachronism, or an
+ *                              inaccuracy that contradicts the evidence (red badge)
+ *                "disputed"  -> likely wrong, but contested/uncertain  (amber badge)
  *                "authentic" -> real & period-correct, just looks wrong (green badge)
  *                "todo"      -> answer key not written yet          (grey "Pending")
  *   label:       NEUTRAL description shown up front. Must NOT reveal the verdict,
