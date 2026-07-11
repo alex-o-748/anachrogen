@@ -28,15 +28,23 @@
   const canvasWrap  = document.querySelector(".canvas-wrap");
   const readoutEl   = document.getElementById("author-readout");
 
-  const btnBack  = document.getElementById("btn-back");
-  const btnReset = document.getElementById("btn-reset");
-  const btnAll   = document.getElementById("btn-all");
-  const btnNext  = document.getElementById("btn-next");
+  const referenceEl      = document.getElementById("reference");
+  const referenceImg     = document.getElementById("reference-img");
+  const referenceCaption = document.getElementById("reference-caption");
+  const referenceCredit  = document.getElementById("reference-credit");
+  const referenceClose   = document.getElementById("reference-close");
+
+  const btnBack    = document.getElementById("btn-back");
+  const btnReset   = document.getElementById("btn-reset");
+  const btnAll     = document.getElementById("btn-all");
+  const btnCompare = document.getElementById("btn-compare");
+  const btnNext    = document.getElementById("btn-next");
 
   // ---- state ----
   let current = null;      // active scene object
   let revealed = 0;        // how many verdicts revealed
   let authoring = false;   // author mode on/off
+  let comparing = false;   // reference overlay on/off
 
   // ============================ GALLERY ============================
 
@@ -59,6 +67,7 @@
   }
 
   function showGallery() {
+    setComparing(false);
     current = null;
     sceneEl.hidden = true;
     galleryEl.hidden = false;
@@ -79,6 +88,7 @@
 
     buildMarkers(scene);
     buildList(scene);
+    setupReference(scene);
     updateCounter();
 
     galleryEl.hidden = true;
@@ -194,6 +204,43 @@
     markersEl.querySelectorAll(".marker.is-active").forEach((el) => el.classList.remove("is-active"));
   }
 
+  // ============================ REFERENCE / COMPARE ============================
+  // Optional real historical image for a scene, shown over the AI one so the
+  // room can see the difference instead of only hearing it described.
+
+  function setupReference(scene) {
+    setComparing(false);
+    const ref = scene.reference;
+    btnCompare.hidden = !ref;
+    referenceImg.removeAttribute("src");   // load lazily on first compare
+    if (ref) {
+      referenceCaption.textContent = ref.caption || "";
+      referenceImg.alt = ref.alt || (scene.title + " — real reference image");
+      if (ref.href) {
+        referenceCredit.textContent = ref.credit || "Source";
+        referenceCredit.href = ref.href;
+        referenceCredit.hidden = false;
+      } else {
+        referenceCredit.hidden = true;
+      }
+    }
+  }
+
+  function toggleCompare() {
+    if (!current || !current.reference) return;
+    setComparing(!comparing);
+  }
+
+  function setComparing(on) {
+    comparing = on && !!(current && current.reference);
+    if (comparing && !referenceImg.getAttribute("src")) {
+      referenceImg.src = current.reference.image;   // lazy first load
+    }
+    referenceEl.hidden = !comparing;
+    btnCompare.classList.toggle("is-on", comparing);
+    btnCompare.textContent = comparing ? "Hide reference" : "Compare ▲▼";
+  }
+
   // ============================ AUTHOR MODE ============================
   // Press "D": click the image to copy fractional x,y for placing markers.
 
@@ -241,11 +288,16 @@
           e.preventDefault(); revealNext(); return;
         case "ArrowLeft":
         case "Escape":
-          e.preventDefault(); showGallery(); return;
+          // Esc closes the reference overlay first, then leaves the scene.
+          e.preventDefault();
+          if (comparing) setComparing(false); else showGallery();
+          return;
         case "a": case "A":
           e.preventDefault(); revealAll(); return;
         case "r": case "R":
           e.preventDefault(); resetScene(); return;
+        case "c": case "C":
+          e.preventDefault(); toggleCompare(); return;
         case "d": case "D":
           e.preventDefault(); setAuthoring(!authoring); return;
       }
@@ -268,7 +320,9 @@
   btnBack.addEventListener("click", showGallery);
   btnReset.addEventListener("click", resetScene);
   btnAll.addEventListener("click", revealAll);
+  btnCompare.addEventListener("click", toggleCompare);
   btnNext.addEventListener("click", revealNext);
+  referenceClose.addEventListener("click", () => setComparing(false));
   imgEl.addEventListener("click", onAuthorClick);
   document.addEventListener("keydown", onKey);
 

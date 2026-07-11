@@ -24,6 +24,22 @@
  *
  * To add a scene: add the image to the repo, copy a block below, and fill it in.
  * (URL-encode spaces in the image path, e.g. "My%20Scene.png".)
+ *
+ * OPTIONAL `reference` — a real historical image for side-by-side comparison.
+ * When present, a "Compare" button (key "C") appears and overlays this real
+ * image on the AI one, so the room can *see* the difference, not just hear it.
+ * reference = {
+ *   image:   URL of the real image to show (may be a local assets/… path or a
+ *            remote URL — the ones below are stable Wikimedia Commons links).
+ *   caption: one line explaining what the real image shows and why it matters.
+ *   credit:  attribution text for the link (e.g. "Wikimedia Commons").
+ *   href:    link to the source page (the Commons file page) for full credit
+ *            and licensing.
+ *   alt:     optional alt text (defaults to "<title> — real reference image").
+ * }
+ * NOTE: the Wikimedia links below are hotlinked via Commons' stable
+ * Special:FilePath URLs. To make the site fully self-contained, download each
+ * file into assets/ and point `image` at the local copy instead.
  */
 
 const SCENES = [
@@ -34,6 +50,13 @@ const SCENES = [
     location: "Mississippian culture · near present-day St. Louis",
     image: "assets/Cahokia(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
+    reference: {
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cahokia_21-1000x381.jpg",
+      caption:
+        "The real Cahokia: Monks Mound is a broad, asymmetric earthwork of uneven terraces reached by a single wooden stair — no stone facing, no neat symmetrical pyramid.",
+      credit: "Wikimedia Commons",
+      href: "https://commons.wikimedia.org/wiki/File:Cahokia_21-1000x381.jpg",
+    },
     // Verdicts are deliberately interleaved (not all anachronisms first) so the
     // reveal order doesn't give the game away.
     // Authentic decoys: DRAFTED — please verify before the session.
@@ -188,6 +211,13 @@ const SCENES = [
     location: "Eastern Han court · Luoyang, China",
     image: "assets/Seismoscope.png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
+    reference: {
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Han_Guangwu_Di.jpg?width=1000",
+      caption:
+        "A traditional portrait of Emperor Guangwu of Han. Note the court dress and its colour — the exclusive 'only the emperor wears yellow' convention is a later Tang-era rule, not Eastern Han (which venerated red).",
+      credit: "Wikimedia Commons",
+      href: "https://commons.wikimedia.org/wiki/File:Han_Guangwu_Di.jpg",
+    },
     // NOTE: marker x,y below are PLACEHOLDERS — re-place each with author mode
     // (press "D", click the image, paste the copied x,y).
     // Verdicts are deliberately interleaved so the reveal order doesn't tip the game.
@@ -234,6 +264,13 @@ const SCENES = [
     location: "Mahavihara (monastic university) · Magadha, India",
     image: "assets/Nalanda.png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
+    reference: {
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Nalanda_09_relief_%2831448111034%29.jpg?width=1400",
+      caption:
+        "A surviving sculpted relief at Nalanda — a trace of the ornamented, moulded surfaces the buildings actually carried, versus the bare red brick of the excavated ruin the AI drew.",
+      credit: "Wikimedia Commons",
+      href: "https://commons.wikimedia.org/wiki/File:Nalanda_09_relief_(31448111034).jpg",
+    },
     // NOTE: marker x,y below are PLACEHOLDERS — re-place each with author mode
     // (press "D", click the image, paste the copied x,y).
     items: [
@@ -279,6 +316,13 @@ const SCENES = [
     location: "London",
     image: "assets/Lovelace.png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
+    reference: {
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Engaving_of_Charles_Babbage_from_Mechanics_Magazine.jpg?width=1000",
+      caption:
+        "Charles Babbage in a period engraving from Mechanics Magazine — a real contemporary likeness to set against the AI's impossible pairing of a young Ada with an aged Babbage.",
+      credit: "Wikimedia Commons",
+      href: "https://commons.wikimedia.org/wiki/File:Engaving_of_Charles_Babbage_from_Mechanics_Magazine.jpg",
+    },
     // NOTE: marker x,y below are PLACEHOLDERS — re-place each with author mode
     // (press "D", click the image, paste the copied x,y).
     items: [

@@ -50,12 +50,34 @@ when served over http rather than `file://`).
 | `Space` / `→` | Reveal the next verdict |
 | `A` | Reveal all verdicts |
 | `R` | Reset the scene (hide verdicts again) |
-| `Esc` / `←` | Back to the gallery |
+| `C` | Toggle the **real reference image** (scenes that have one — see below) |
+| `Esc` / `←` | Close the reference image, or go back to the gallery |
 | `1`–`9` | (in the gallery) jump straight to a scene |
 | `D` | Toggle **author mode** (for adding new images — see below) |
 
 Clicking a marker or a list row highlights the pair, so you can point the room at
 exactly the detail under discussion before revealing it.
+
+## Comparing against the real image
+
+Some things are easier to *show* than to describe. A scene can carry an optional
+**reference image** — the real historical picture the AI got wrong. When one is
+present, a **Compare** button (or press `C`) overlays that real image over the
+AI one so the room can see the difference directly, then toggle back.
+
+Four scenes ship with a Wikimedia Commons reference: **Cahokia** (the real
+asymmetric Monks Mound), **Zhang Heng's Seismoscope** (a portrait of Emperor
+Guangwu of Han, for the robe-colour point), **Nalanda at its Height** (a
+surviving sculpted relief vs. the bare excavated brick), and **Lovelace, Babbage
+& the Analytical Engine** (a period engraving of Babbage, for the impossible
+age pairing).
+
+These four are **hotlinked** from Commons via stable `Special:FilePath` URLs, so
+they load in a normal browser but need network access. To make the site fully
+self-contained, download each file into `assets/` and point the scene's
+`reference.image` at the local copy. Add a reference to any scene by giving it a
+`reference` object (`image`, `caption`, `credit`, `href`) — see the comment at
+the top of `scenes.js`.
 
 ## Adding a new scene
 
