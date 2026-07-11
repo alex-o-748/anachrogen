@@ -340,6 +340,85 @@ kbd {
   line-height: 1.7;
 }
 
+/* --- reference / compare overlay --- */
+/* Shows the real historical image over the AI one so the room can compare.
+   Fills the whole dark stage, letterboxing the reference to fit. */
+.reference {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  background: #14100c;
+  display: flex;
+  flex-direction: column;
+  animation: reference-in 0.2s ease;
+}
+@keyframes reference-in { from { opacity: 0; } to { opacity: 1; } }
+
+.reference-img {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  object-fit: contain;
+  background: #14100c;
+}
+.reference-bar {
+  flex: 0 0 auto;
+  background: rgba(20, 16, 12, 0.92);
+  color: #fdfaf3;
+  padding: 12px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.reference-caption {
+  font-family: var(--serif);
+  font-size: 1.14rem;
+  line-height: 1.35;
+  margin: 0;
+}
+.reference-credit {
+  font-size: 0.82rem;
+  color: #cabfa8;
+  text-decoration: underline;
+  align-self: flex-start;
+}
+.reference-credit:hover { color: #fdfaf3; }
+.reference-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  background: var(--authentic);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 13px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.reference-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  font: inherit;
+  font-size: 0.95rem;
+  color: #fdfaf3;
+  background: rgba(20, 16, 12, 0.75);
+  border: 1px solid rgba(253, 250, 243, 0.4);
+  border-radius: 8px;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+.reference-close:hover { background: rgba(60, 50, 38, 0.9); }
+.btn.is-on {
+  background: var(--ink);
+  color: var(--card);
+  border-color: var(--ink);
+}
+
 /* --- author mode readout --- */
 .author-readout {
   position: absolute;

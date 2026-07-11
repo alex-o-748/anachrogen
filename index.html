@@ -35,6 +35,17 @@
           <span id="scene-date" class="chip-date"></span>
         </div>
         <div id="author-readout" class="author-readout" hidden></div>
+
+        <!-- reference overlay: the real historical image, for side-by-side comparison -->
+        <div id="reference" class="reference" hidden>
+          <span class="reference-tag">Real reference</span>
+          <button id="reference-close" class="reference-close" type="button" title="Back to the AI image (C)">Close &#10005;</button>
+          <img id="reference-img" class="reference-img" alt="" />
+          <div class="reference-bar">
+            <p id="reference-caption" class="reference-caption"></p>
+            <a id="reference-credit" class="reference-credit" target="_blank" rel="noopener noreferrer"></a>
+          </div>
+        </div>
       </div>
 
       <!-- side panel: prompt, item list, controls -->
@@ -45,14 +56,15 @@
         <div class="panel-foot">
           <div id="counter" class="counter"></div>
           <div class="controls">
-            <button id="btn-back"   class="btn"        title="Back to gallery (Esc)">&larr; Scenes</button>
-            <button id="btn-reset"  class="btn"        title="Hide all verdicts (R)">Reset</button>
-            <button id="btn-all"    class="btn"        title="Reveal every verdict (A)">Reveal all</button>
-            <button id="btn-next"   class="btn btn-primary" title="Reveal next verdict (Space / →)">Reveal next &rarr;</button>
+            <button id="btn-back"    class="btn"        title="Back to gallery (Esc)">&larr; Scenes</button>
+            <button id="btn-reset"   class="btn"        title="Hide all verdicts (R)">Reset</button>
+            <button id="btn-all"     class="btn"        title="Reveal every verdict (A)">Reveal all</button>
+            <button id="btn-compare" class="btn"        title="Compare with the real image (C)" hidden>Compare &#9650;&#9660;</button>
+            <button id="btn-next"    class="btn btn-primary" title="Reveal next verdict (Space / →)">Reveal next &rarr;</button>
           </div>
           <p class="hint">
             <kbd>Space</kbd> reveal next &middot; <kbd>A</kbd> all &middot;
-            <kbd>R</kbd> reset &middot; <kbd>Esc</kbd> back &middot; <kbd>D</kbd> author mode
+            <kbd>R</kbd> reset &middot; <kbd>C</kbd> compare &middot; <kbd>Esc</kbd> back &middot; <kbd>D</kbd> author mode
           </p>
         </div>
       </aside>
