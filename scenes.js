@@ -202,7 +202,7 @@ const SCENES = [
       },
       {
         n: 2,
-        x: 0.223, y: 0.457dd,
+        x: 0.223, y: 0.457,
         verdict: "invented",
         label: "The high-backed chair the emperor sits on",
         explanation:
@@ -247,7 +247,7 @@ const SCENES = [
       },
       {
         n: 2,
-        x: 0.44, y: 0.81dd,
+        x: 0.44, y: 0.81,
         verdict: "invented",
         label: "The bound books in the monks' hands",
         explanation:
