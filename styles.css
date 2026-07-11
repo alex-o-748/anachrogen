@@ -177,9 +177,12 @@ kbd {
 .chip-date  { font-size: 1rem; opacity: 0.85; }
 
 /* --- markers on the image --- */
-.markers { position: absolute; inset: 0; }
+/* The overlay spans the whole image; keep it click-through so author-mode
+   clicks reach the image beneath. Individual markers re-enable clicks. */
+.markers { position: absolute; inset: 0; pointer-events: none; }
 .marker {
   position: absolute;
+  pointer-events: auto;
   width: 46px;
   height: 46px;
   margin: -23px 0 0 -23px;          /* center on x,y */
