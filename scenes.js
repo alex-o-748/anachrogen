@@ -34,6 +34,9 @@ const SCENES = [
     location: "Mississippian culture · near present-day St. Louis",
     image: "Cahokia(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
+    // Verdicts are deliberately interleaved (not all anachronisms first) so the
+    // reveal order doesn't give the game away.
+    // Authentic decoys: DRAFTED — please verify before the session.
     items: [
       {
         n: 1,
@@ -45,23 +48,6 @@ const SCENES = [
       },
       {
         n: 2,
-        x: 0.83, y: 0.24,
-        verdict: "invented",
-        label: "The symmetric, tiered-pyramid silhouette of the mound",
-        explanation:
-          "Invented. Same contamination — the real mound is asymmetric, with four uneven terraces, not a neat symmetrical pyramid.",
-      },
-      {
-        n: 3,
-        x: 0.78, y: 0.49,
-        verdict: "invented",
-        label: "The tall upright feather headdress on the elite figure",
-        explanation:
-          "Invented. That's Plains war-bonnet iconography — wrong era and culture. Mississippian elite regalia (shell gorgets, copper plates, Birdman motifs) looks nothing like it.",
-      },
-      // --- Authentic decoys below: DRAFTED — please verify before the session. ---
-      {
-        n: 4,
         x: 0.925, y: 0.44,
         verdict: "authentic",
         label: "The steep thatched-roof buildings",
@@ -69,12 +55,28 @@ const SCENES = [
           "Authentic. Mississippian buildings were pole-frame structures with thatched or mat-covered roofs; the form is broadly right for the period.",
       },
       {
-        n: 5,
+        n: 3,
+        x: 0.83, y: 0.24,
+        verdict: "invented",
+        label: "The symmetric, tiered-pyramid silhouette of the mound",
+        explanation:
+          "Invented. Same contamination — the real mound is asymmetric, with four uneven terraces, not a neat symmetrical pyramid.",
+      },
+      {
+        n: 4,
         x: 0.155, y: 0.82,
         verdict: "authentic",
         label: "The hand-built pottery worked in the foreground",
         explanation:
           "Authentic. Cahokians were skilled potters, making shell-tempered coil-built vessels by hand — no wheel, exactly as shown.",
+      },
+      {
+        n: 5,
+        x: 0.78, y: 0.49,
+        verdict: "invented",
+        label: "The tall upright feather headdress on the elite figure",
+        explanation:
+          "Invented. That's Plains war-bonnet iconography — wrong era and culture. Mississippian elite regalia (shell gorgets, copper plates, Birdman motifs) looks nothing like it.",
       },
     ],
   },
@@ -86,6 +88,9 @@ const SCENES = [
     location: "Paris, during the plague",
     image: "Black%20Death%20in%20Paris(1).png",
     prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
+    // Verdicts are deliberately interleaved (not all anachronisms first) so the
+    // reveal order doesn't give the game away.
+    // Authentic decoys: DRAFTED — please verify before the session.
     items: [
       {
         n: 1,
@@ -97,23 +102,6 @@ const SCENES = [
       },
       {
         n: 2,
-        x: 0.745, y: 0.11,
-        verdict: "invented",
-        label: "The lantern hanging over the street",
-        explanation:
-          "Invented. Public street lighting in Paris begins under La Reynie in 1667 — there were no fixed street lanterns like this in 1348.",
-      },
-      {
-        n: 3,
-        x: 0.09, y: 0.44,
-        verdict: "disputed",
-        label: "The red cross painted to mark the house",
-        explanation:
-          "Disputed. Marking infected houses with a red cross is documented for later plagues (London, 1665); it is not attested for 1348 Paris.",
-      },
-      // --- Authentic decoys below: DRAFTED — please verify before the session. ---
-      {
-        n: 4,
         x: 0.635, y: 0.29,
         verdict: "authentic",
         label: "The twin-towered cathedral rising in the distance",
@@ -121,12 +109,28 @@ const SCENES = [
           "Authentic. Notre-Dame de Paris was essentially complete — its west front and towers finished by ~1345 — so it would indeed loom over the city in 1348.",
       },
       {
-        n: 5,
+        n: 3,
+        x: 0.745, y: 0.11,
+        verdict: "invented",
+        label: "The lantern hanging over the street",
+        explanation:
+          "Invented. Public street lighting in Paris begins under La Reynie in 1667 — there were no fixed street lanterns like this in 1348.",
+      },
+      {
+        n: 4,
         x: 0.505, y: 0.60,
         verdict: "authentic",
         label: "The cart carrying bodies through the street",
         explanation:
           "Authentic. With mortality overwhelming the city, corpses were collected by cart for mass burial — a grimly accurate detail of the 1348 outbreak.",
+      },
+      {
+        n: 5,
+        x: 0.09, y: 0.44,
+        verdict: "disputed",
+        label: "The red cross painted to mark the house",
+        explanation:
+          "Disputed. Marking infected houses with a red cross is documented for later plagues (London, 1665); it is not attested for 1348 Paris.",
       },
     ],
   },
