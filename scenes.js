@@ -12,10 +12,18 @@
  *                x = 0 is the left edge, 1 the right edge; y = 0 top, 1 bottom.
  *                Tip: open the app, press "D" for author mode, then click the
  *                image — the x,y under your cursor is copied to the clipboard.
- *   verdict:     "invented"  -> the model got it wrong: an anachronism, or an
- *                              inaccuracy that contradicts the evidence (red badge)
- *                "disputed"  -> likely wrong, but contested/uncertain  (amber badge)
- *                "authentic" -> real & period-correct, just looks wrong (green badge)
+ *   verdict:     A five-point scale from clearly wrong to clearly right, plus a
+ *                "pending" placeholder. The middle three let a detail be graded
+ *                on the *evidence*, not just true/false:
+ *                "invented"  -> got it wrong: an anachronism, or an inaccuracy
+ *                              that contradicts the evidence         (red badge)
+ *                "unlikely"  -> probably wrong; leans against the evidence,
+ *                              but not a flat impossibility        (orange badge)
+ *                "disputed"  -> genuinely contested/uncertain among
+ *                              scholars — no settled answer         (amber badge)
+ *                "plausible" -> no evidence *for* it, but none against either;
+ *                              period-possible, so not an error      (sage badge)
+ *                "authentic" -> attested & period-correct, just looks wrong (green)
  *                "todo"      -> answer key not written yet          (grey "Pending")
  *   label:       NEUTRAL description shown up front. Must NOT reveal the verdict,
  *                e.g. "The tall feathered headdress" — never "invented headdress".
@@ -24,6 +32,12 @@
  *
  * To add a scene: add the image to the repo, copy a block below, and fill it in.
  * (URL-encode spaces in the image path, e.g. "My%20Scene.png".)
+ *
+ * OPTIONAL `attribution` — for scenes that are NOT AI images but real artworks
+ * (e.g. a 19th-century history painting). When present it's used for the image's
+ * alt text instead of the default "AI-generated illustration", so a real Gérôme
+ * or Alma-Tadema is described honestly. The game itself is unchanged: even
+ * celebrated painters slipped anachronisms in, which is the whole point.
  *
  * OPTIONAL `reference` — a real historical image for side-by-side comparison.
  * When present, a "Compare" button (key "C") appears and overlays this real
@@ -388,6 +402,87 @@ const SCENES = [
         label: "The sheer size of the ship",
         explanation:
           "Historians disagree. The image commits to the maximalist ~440-foot reading of the figures in the Ming shi (History of Ming). Many naval historians think a wooden hull at that scale is structurally implausible and put the real ships at roughly half. This is the round's live argument, not a settled error — and the size figures come from the same contested account any verdict has to cite.",
+      },
+    ],
+  },
+
+  // ------------------------------------------------------------------
+  // The final two scenes flip the premise: these are NOT AI images but
+  // real 19th-century history paintings by celebrated academic artists.
+  // The lesson lands harder — the same anachronistic instincts we catch
+  // in a model were already there in Gérôme and Alma-Tadema.
+  // ------------------------------------------------------------------
+
+  {
+    id: "cleopatra-caesar",
+    title: "Cleopatra and Caesar",
+    date: "48 BCE",
+    location: "Alexandria, Ptolemaic Egypt",
+    image: "assets/Cleopatra_and_Caesar_by_Jean-Leon-Gerome.jpg",
+    attribution: "Jean-Léon Gérôme, 1866",
+    prompt:
+      "Not AI — a real painting by Jean-Léon Gérôme (1866). Even a master academic painter grades on the same scale. Authentic or anachronistic?",
+    items: [
+      {
+        n: 1,
+        x: 0.72, y: 0.33,
+        verdict: "unlikely",
+        label: "The hieroglyph-covered walls and columns of the hall",
+        explanation:
+          "Unlikely. Gérôme walls the room in pharaonic temple reliefs and hieroglyphs, but by 48 BCE Cleopatra's court was Hellenistic Greek. The Ptolemaic royal palace at Alexandria was a Greek building of marble colonnades, and the court spoke Greek. Temple hieroglyphs still existed in Egypt, but a private audience chamber dressed like a New-Kingdom sanctuary is the 19th-century Orientalist idea of 'Egypt,' not the Greek Alexandria Caesar actually walked into — so it leans wrong.",
+      },
+      {
+        n: 2,
+        x: 0.15, y: 0.63,
+        verdict: "plausible",
+        label: "Caesar's red cloak and dress",
+        explanation:
+          "Plausible. No source records exactly what Caesar wore that day, so we can't call it authentic. But a senior Roman commander in a red cloak (the paludamentum) over a tunic is squarely in keeping with Roman military and magisterial dress. There's no evidence for this specific outfit — and none against it — so it's period-possible rather than an error.",
+      },
+      {
+        n: 3,
+        x: 0.40, y: 0.87,
+        verdict: "plausible",
+        label: "The great patterned carpet on the floor",
+        explanation:
+          "Plausible. The rolled carpet is the popular version of Cleopatra being smuggled in to Caesar — though Plutarch actually says she was carried in a bed-sack (strōmatodesmon), not a rug. As an object, though, a richly patterned carpet is entirely at home in the ancient Mediterranean and Near East. We have no evidence for this particular one, but its presence isn't anachronistic, so it's plausible, not invented.",
+      },
+    ],
+  },
+
+  {
+    id: "antony-cleopatra",
+    title: "The Meeting of Antony and Cleopatra",
+    date: "41 BCE",
+    location: "Tarsus, on the river Cydnus · Roman Cilicia",
+    image: "assets/Sir_Lawrence_Alma-Tadema_-_The_Meeting_of_Antony_and_Cleopatra.jpg",
+    attribution: "Sir Lawrence Alma-Tadema, 1885",
+    prompt:
+      "Not AI — a real painting by Sir Lawrence Alma-Tadema (1885). The last scene: the human artist grades on the same scale. Authentic or anachronistic?",
+    items: [
+      {
+        n: 1,
+        x: 0.72, y: 0.90,
+        verdict: "unlikely",
+        label: "The row of hieroglyphs along the barge's hull",
+        explanation:
+          "Unlikely. Cleopatra's grand entrance at Tarsus was Ptolemaic-Greek theatre, staged for a Roman audience, and her world ran on Greek. Monumental hieroglyphs belonged to temples and formal royal monuments — not the trim of a pleasure barge on a Cilician river. Carved 'Egyptian writing' along the hull is Alma-Tadema signalling 'Egypt' to Victorian viewers more than reconstructing what Cleopatra's barge would really have carried.",
+      },
+      {
+        n: 2,
+        x: 0.09, y: 0.10,
+        verdict: "disputed",
+        label: "The Roman warship and boarding gangway, top left",
+        explanation:
+          "Disputed by scholars. The painter gives the Roman galley a confident, specific rig — but how ancient oared warships (triremes and their larger cousins) were actually built and rowed is one of the genuinely open questions in classical scholarship. The banking of the oars, the outrigger, the ram and gangway are all reconstructed from fragmentary evidence and still argued over by naval historians. Not clearly right, not clearly wrong: a reasonable guess at something the sources never fully settle.",
+      },
+      {
+        n: 3,
+        x: 0.17, y: 0.325,
+        verdict: "invented",
+        label: "The soldier's Roman helmet at the left",
+        explanation:
+          "Inaccurate. The helmet is the wrong silhouette for a Roman soldier of the 1st century BCE. The Montefortino and Coolus helmets of the period characteristically carried a small raised knob or top-button at the crown — not the smooth fore-and-aft ridge the painter has given it. It reads as a generic 'antique' helmet rather than the specific form the archaeology actually shows.",
       },
     ],
   },

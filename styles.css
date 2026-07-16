@@ -11,10 +11,12 @@
   --line:      #d6cbb6;
   --card:      #fbf8f1;
 
-  --invented:  #b4302a;   /* red   */
-  --disputed:  #c8871b;   /* amber */
-  --authentic: #2f7d4f;   /* green */
-  --todo:      #8a8073;   /* grey  */
+  --invented:  #b4302a;   /* red    — wrong / inaccurate            */
+  --unlikely:  #cf6a2b;   /* orange — probably wrong                */
+  --disputed:  #c8871b;   /* amber  — genuinely contested           */
+  --plausible: #6f9a4e;   /* sage   — no evidence for, none against  */
+  --authentic: #2f7d4f;   /* green  — attested & period-correct      */
+  --todo:      #8a8073;   /* grey   — answer key pending             */
 
   --shadow: 0 6px 24px rgba(40, 32, 20, 0.18);
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
@@ -203,7 +205,9 @@ kbd {
 .marker:hover { transform: scale(1.12); }
 .marker.is-active { transform: scale(1.18); z-index: 3; }
 .marker.revealed.v-invented  { background: var(--invented);  border-color: #fff; }
+.marker.revealed.v-unlikely  { background: var(--unlikely);  border-color: #fff; }
 .marker.revealed.v-disputed  { background: var(--disputed);  border-color: #fff; }
+.marker.revealed.v-plausible { background: var(--plausible); border-color: #fff; }
 .marker.revealed.v-authentic { background: var(--authentic); border-color: #fff; }
 .marker.revealed.v-todo      { background: var(--todo);      border-color: #fff; }
 
@@ -290,11 +294,15 @@ kbd {
 .item.revealed .item-explain { max-height: 340px; opacity: 1; margin-top: 9px; }
 
 .item.revealed.v-invented  { border-left-color: var(--invented); }
+.item.revealed.v-unlikely  { border-left-color: var(--unlikely); }
 .item.revealed.v-disputed  { border-left-color: var(--disputed); }
+.item.revealed.v-plausible { border-left-color: var(--plausible); }
 .item.revealed.v-authentic { border-left-color: var(--authentic); }
 .item.revealed.v-todo      { border-left-color: var(--todo); }
 .badge.v-invented  { background: var(--invented); }
+.badge.v-unlikely  { background: var(--unlikely); }
 .badge.v-disputed  { background: var(--disputed); }
+.badge.v-plausible { background: var(--plausible); }
 .badge.v-authentic { background: var(--authentic); }
 .badge.v-todo      { background: var(--todo); }
 

@@ -1,10 +1,11 @@
 # Anachrogen
 
 A quick, projector-friendly party game for a room full of people: look at an
-AI-generated illustration of a historical scene and decide, for each marked
-detail, whether it is **authentic** or something the **model got wrong**. Some
-of the model's mistakes are true anachronisms (something from the wrong era);
-others are just inaccuracies that contradict the historical evidence.
+illustration of a historical scene — most are AI-generated, a few are real
+paintings by famous artists — and decide, for each marked detail, whether it is
+**authentic** or something the maker **got wrong**. Some mistakes are true
+anachronisms (something from the wrong era); others are just inaccuracies that
+contradict the historical evidence.
 
 Built for a ~15-minute Wikipedia-conference session with a few dozen people and
 one shared screen. No accounts, no backend, no build step — it's plain HTML, CSS
@@ -19,11 +20,17 @@ and JavaScript.
    details look wrong, and some *invented* ones look convincing.
 3. **Debate each item** with the room — a show of hands per marker works well.
 4. **Reveal** the verdicts one at a time. Each gets a colored badge and a one-line
-   explanation:
-   - 🔴 **Invented** — the model got it wrong, whether a true anachronism (wrong
-     era/culture) or an inaccuracy that contradicts the historical evidence.
-   - 🟠 **Disputed** — likely wrong, but genuinely contested.
-   - 🟢 **Authentic** — real and period-correct, even if it looks wrong.
+   explanation. Verdicts run on a five-point scale from clearly wrong to clearly
+   right, so a detail can be graded on the *evidence*, not just true/false:
+   - 🔴 **Invented** — got it wrong: a true anachronism (wrong era/culture) or an
+     inaccuracy that contradicts the historical evidence.
+   - 🟠 **Unlikely** — probably wrong; leans against the evidence, but not a flat
+     impossibility.
+   - 🟡 **Disputed** — genuinely contested/uncertain among scholars, with no
+     settled answer.
+   - 🫒 **Plausible** — no evidence *for* it, but none against either; period-possible,
+     so not an error.
+   - 🟢 **Authentic** — attested and period-correct, even if it looks wrong.
 
 Three scenes ≈ 15 minutes with discussion.
 
@@ -88,9 +95,11 @@ All content lives in **`scenes.js`** — it's the only file you edit.
 2. Copy an existing scene block and fill in `id`, `title`, `date`, `location`,
    `image` (URL-encode spaces, e.g. `My%20Scene.png`), and the `items` list.
 3. Each item needs a marker position (`x`, `y` as fractions of the image, `0`–`1`),
-   a `verdict` (`"invented"`, `"disputed"`, `"authentic"`, or `"todo"`), a
-   **neutral** `label` (don't give the answer away), and an `explanation` shown on
-   reveal.
+   a `verdict` (`"invented"`, `"unlikely"`, `"disputed"`, `"plausible"`,
+   `"authentic"`, or `"todo"`), a **neutral** `label` (don't give the answer away),
+   and an `explanation` shown on reveal. A scene that is a real artwork rather than
+   an AI image can also set `attribution` (e.g. `"Jean-Léon Gérôme, 1866"`), which
+   is used for its alt text instead of the default "AI-generated illustration".
 
 **Placing markers the easy way:** open the scene, press `D` for author mode, and
 click on the image where you want a marker. The exact `x: …, y: …` is shown and
@@ -111,5 +120,11 @@ copied to your clipboard — paste it straight into the item. Press `D` again to
   mode (press `D`). Two verdicts are deliberately left as `"todo"` pending a
   source check: the emperor's robe colour (Zhang Heng) and the single-character
   `明` banner (Treasure Fleet).
+- **Cleopatra and Caesar** (Jean-Léon Gérôme, 1866) and **The Meeting of Antony
+  and Cleopatra** (Sir Lawrence Alma-Tadema, 1885) — the closing pair, and the
+  twist: these are *real* history paintings, not AI images (flagged with
+  `attribution`). They show the same anachronistic instincts in celebrated human
+  artists. Answer keys are written; marker `x, y` are placed but worth a quick
+  check in author mode (press `D`) before presenting.
 
 All scene images live under **`assets/`**.
