@@ -9,7 +9,9 @@
 
   const VERDICT_LABEL = {
     invented:  "Invented",
+    unlikely:  "Unlikely",
     disputed:  "Disputed",
+    plausible: "Plausible",
     authentic: "Authentic",
     todo:      "Pending",
   };
@@ -179,7 +181,11 @@
     titleEl.textContent  = scene.title;
     dateEl.textContent   = scene.date;
     promptEl.textContent = scene.prompt || "Authentic or anachronistic?";
-    imgEl.alt = scene.title + " — AI-generated illustration";
+    // Most scenes are AI-generated; a few are real paintings that carry an
+    // `attribution`, so describe those honestly rather than as AI output.
+    imgEl.alt = scene.attribution
+      ? scene.title + " — " + scene.attribution
+      : scene.title + " — AI-generated illustration";
     imgEl.src = scene.image;
 
     buildMarkers(scene);
