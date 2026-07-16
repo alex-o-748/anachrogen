@@ -17,6 +17,7 @@
   // ---- element refs ----
   const galleryEl   = document.getElementById("gallery");
   const gridEl      = document.getElementById("gallery-grid");
+  const toolsEl     = document.getElementById("gallery-tools");
   const sceneEl     = document.getElementById("scene");
   const imgEl       = document.getElementById("scene-img");
   const markersEl   = document.getElementById("markers");
@@ -45,25 +46,120 @@
   let revealed = 0;        // how many verdicts revealed
   let authoring = false;   // author mode on/off
   let comparing = false;   // reference overlay on/off
+  let managing = false;    // "manage hidden" mode: show hidden cards to restore
+
+  // ---- hidden scenes: which cards the presenter has tucked away ----
+  // Persisted so a curated gallery survives a page reload during the event.
+  const HIDDEN_KEY = "anachrogen:hidden";
+  const hiddenIds = loadHidden();
+
+  function loadHidden() {
+    try {
+      const raw = localStorage.getItem(HIDDEN_KEY);
+      return new Set(raw ? JSON.parse(raw) : []);
+    } catch (_) {
+      return new Set();
+    }
+  }
+  function saveHidden() {
+    try {
+      localStorage.setItem(HIDDEN_KEY, JSON.stringify([...hiddenIds]));
+    } catch (_) { /* private mode / storage full — hiding just won't persist */ }
+  }
 
   // ============================ GALLERY ============================
 
   function buildGallery() {
     gridEl.innerHTML = "";
     SCENES.forEach((scene, i) => {
-      const card = document.createElement("button");
+      const card = document.createElement("div");
       card.className = "card";
-      card.type = "button";
-      card.innerHTML = `
+      card.dataset.id = scene.id;
+
+      const open = document.createElement("button");
+      open.className = "card-open";
+      open.type = "button";
+      open.innerHTML = `
         <img class="card-thumb" src="${scene.image}" alt="" loading="lazy" />
         <div class="card-body">
           <span class="card-index">${i + 1}</span>
           <h2 class="card-title">${escapeHtml(scene.title)}</h2>
           <div class="card-date">${escapeHtml(scene.date)}</div>
         </div>`;
-      card.addEventListener("click", () => openScene(scene));
+      open.addEventListener("click", () => openScene(scene));
+
+      const toggle = document.createElement("button");
+      toggle.className = "card-hide";
+      toggle.type = "button";
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleHidden(scene.id);
+      });
+
+      card.appendChild(open);
+      card.appendChild(toggle);
       gridEl.appendChild(card);
     });
+    refreshHiddenUI();
+  }
+
+  function toggleHidden(id) {
+    if (hiddenIds.has(id)) hiddenIds.delete(id);
+    else hiddenIds.add(id);
+    saveHidden();
+    refreshHiddenUI();
+  }
+
+  function restoreAll() {
+    hiddenIds.clear();
+    saveHidden();
+    managing = false;
+    refreshHiddenUI();
+  }
+
+  // Reflect the current hidden set onto the cards and the tools bar.
+  function refreshHiddenUI() {
+    const anyHidden = hiddenIds.size > 0;
+    if (!anyHidden) managing = false;
+    gridEl.classList.toggle("show-hidden", managing);
+
+    gridEl.querySelectorAll(".card").forEach((card) => {
+      const hidden = hiddenIds.has(card.dataset.id);
+      card.classList.toggle("is-hidden", hidden);
+      const btn = card.querySelector(".card-hide");
+      btn.innerHTML = hidden ? "&#8630;" : "&#10005;"; // ↺ restore : ✕ hide
+      btn.title = hidden ? "Restore this scene" : "Hide this scene";
+      btn.setAttribute("aria-label", btn.title);
+    });
+
+    const shown = SCENES.length - hiddenIds.size;
+    toolsEl.innerHTML = "";
+    if (!anyHidden) return;
+
+    const status = document.createElement("span");
+    status.className = "tools-status";
+    status.textContent = `${shown} shown · ${hiddenIds.size} hidden`;
+
+    const manageBtn = document.createElement("button");
+    manageBtn.type = "button";
+    manageBtn.className = "btn";
+    manageBtn.textContent = managing ? "Done" : "Manage hidden";
+    manageBtn.addEventListener("click", () => {
+      managing = !managing;
+      refreshHiddenUI();
+    });
+
+    toolsEl.appendChild(status);
+    toolsEl.appendChild(manageBtn);
+
+    if (managing) {
+      const restoreBtn = document.createElement("button");
+      restoreBtn.type = "button";
+      restoreBtn.className = "btn";
+      restoreBtn.textContent = "Restore all";
+      restoreBtn.addEventListener("click", restoreAll);
+      toolsEl.appendChild(restoreBtn);
+    }
   }
 
   function showGallery() {

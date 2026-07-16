@@ -27,6 +27,19 @@ and JavaScript.
 
 Three scenes ≈ 15 minutes with discussion.
 
+## Curating the gallery for an event
+
+You rarely present every scene. To keep the gallery to just the ones you'll
+use — say your **top four**, so they fit on one screen — hover any card and
+click the **&times;** in its corner to hide it. Hidden scenes drop out of the
+gallery immediately.
+
+Your choice is remembered in the browser (`localStorage`), so a reload during
+the session keeps the curated set. When anything is hidden, a small bar appears
+above the grid showing how many are shown vs. hidden, with a **Manage hidden**
+button — click it to bring the hidden cards back (dimmed) so you can restore any
+one with its corner button, or **Restore all** to clear the whole list.
+
 ## Running it
 
 It's a static site. Any of these works:

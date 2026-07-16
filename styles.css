@@ -80,23 +80,89 @@ kbd {
   padding: 3vh 24px;
 }
 .card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
-  cursor: pointer;
   box-shadow: var(--shadow);
-  text-align: left;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  transition: transform 0.14s ease, box-shadow 0.14s ease;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, opacity 0.14s ease;
 }
-.card:hover, .card:focus-visible {
+.card:hover, .card:focus-within {
   transform: translateY(-4px);
   box-shadow: 0 12px 34px rgba(40, 32, 20, 0.26);
-  outline: none;
 }
+/* the clickable body of a card (opens the scene) */
+.card-open {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.card-open:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+
+/* corner hide / restore button */
+.card-hide {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(251, 248, 241, 0.92);
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.14s ease, background-color 0.14s ease,
+              color 0.14s ease, border-color 0.14s ease;
+}
+.card:hover .card-hide,
+.card:focus-within .card-hide { opacity: 1; }
+.card-hide:hover { background: var(--invented); color: #fff; border-color: var(--invented); }
+/* touch devices have no hover — keep the control reachable */
+@media (hover: none) { .card-hide { opacity: 1; } }
+
+/* a hidden card is removed from the normal gallery; it only reappears,
+   dimmed, while the presenter is managing hidden scenes */
+.gallery-grid:not(.show-hidden) .card.is-hidden { display: none; }
+.card.is-hidden { opacity: 0.5; }
+.card.is-hidden .card-hide {
+  opacity: 1;
+  background: var(--authentic);
+  color: #fff;
+  border-color: var(--authentic);
+}
+
+/* gallery tools bar (only shown once something is hidden) */
+.gallery-tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.gallery-tools:empty { display: none; }
+.tools-status {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+.gallery-tools .btn { font-size: 0.95rem; padding: 8px 14px; }
 .card-thumb {
   aspect-ratio: 3 / 2;
   width: 100%;
