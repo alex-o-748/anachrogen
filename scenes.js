@@ -420,8 +420,7 @@ const SCENES = [
     location: "Alexandria, Ptolemaic Egypt",
     image: "assets/Cleopatra_and_Caesar_by_Jean-Leon-Gerome.jpg",
     attribution: "Jean-Léon Gérôme, 1866",
-    prompt:
-      "Not AI — a real painting by Jean-Léon Gérôme (1866). Even a master academic painter grades on the same scale. Authentic or anachronistic?",
+    prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
     items: [
       {
         n: 1,
@@ -457,8 +456,7 @@ const SCENES = [
     location: "Tarsus, on the river Cydnus · Roman Cilicia",
     image: "assets/Sir_Lawrence_Alma-Tadema_-_The_Meeting_of_Antony_and_Cleopatra.jpg",
     attribution: "Sir Lawrence Alma-Tadema, 1885",
-    prompt:
-      "Not AI — a real painting by Sir Lawrence Alma-Tadema (1885). The last scene: the human artist grades on the same scale. Authentic or anachronistic?",
+    prompt: "Authentic or anachronistic? Debate each marked detail, then reveal.",
     items: [
       {
         n: 1,
