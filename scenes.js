@@ -428,7 +428,7 @@ const SCENES = [
         verdict: "unlikely",
         label: "The hieroglyph-covered walls and columns of the hall",
         explanation:
-          "Unlikely. Gérôme walls the room in pharaonic temple reliefs and hieroglyphs, but by 48 BCE Cleopatra's court was Hellenistic Greek. The Ptolemaic royal palace at Alexandria was a Greek building of marble colonnades, and the court spoke Greek. Temple hieroglyphs still existed in Egypt, but a private audience chamber dressed like a New-Kingdom sanctuary is the 19th-century Orientalist idea of 'Egypt,' not the Greek Alexandria Caesar actually walked into — so it leans wrong.",
+          "Unlikely. The room is walled in pharaonic temple reliefs and hieroglyphs, but by 48 BCE Cleopatra's court was Hellenistic Greek. The Ptolemaic royal palace at Alexandria was a Greek building of marble colonnades, and the court spoke Greek. Temple hieroglyphs still existed in Egypt, but a private audience chamber dressed like a New-Kingdom sanctuary is the popular idea of 'Egypt,' not the Greek Alexandria Caesar actually walked into — so it leans wrong.",
       },
       {
         n: 2,
@@ -444,7 +444,7 @@ const SCENES = [
         verdict: "plausible",
         label: "The great patterned carpet on the floor",
         explanation:
-          "Plausible. The rolled carpet is the popular version of Cleopatra being smuggled in to Caesar — though Plutarch actually says she was carried in a bed-sack (strōmatodesmon), not a rug. As an object, though, a richly patterned carpet is entirely at home in the ancient Mediterranean and Near East. We have no evidence for this particular one, but its presence isn't anachronistic, so it's plausible, not invented.",
+          "Plausible — and here's the twist: this isn't AI at all. It's a real painting by Jean-Léon Gérôme (1866), and even a master academic painter grades on the very same scale. As for the carpet: the rolled rug is the popular version of Cleopatra being smuggled in to Caesar — though Plutarch actually says she was carried in a bed-sack (strōmatodesmon), not a rug. As an object, though, a richly patterned carpet is entirely at home in the ancient Mediterranean and Near East. We have no evidence for this particular one, but its presence isn't anachronistic, so it's plausible, not invented.",
       },
     ],
   },
@@ -464,7 +464,7 @@ const SCENES = [
         verdict: "unlikely",
         label: "The row of hieroglyphs along the barge's hull",
         explanation:
-          "Unlikely. Cleopatra's grand entrance at Tarsus was Ptolemaic-Greek theatre, staged for a Roman audience, and her world ran on Greek. Monumental hieroglyphs belonged to temples and formal royal monuments — not the trim of a pleasure barge on a Cilician river. Carved 'Egyptian writing' along the hull is Alma-Tadema signalling 'Egypt' to Victorian viewers more than reconstructing what Cleopatra's barge would really have carried.",
+          "Unlikely. Cleopatra's grand entrance at Tarsus was Ptolemaic-Greek theatre, staged for a Roman audience, and her world ran on Greek. Monumental hieroglyphs belonged to temples and formal royal monuments — not the trim of a pleasure barge on a Cilician river. Carved 'Egyptian writing' along the hull reads as generic 'Egypt' signalling more than a reconstruction of what Cleopatra's barge would really have carried.",
       },
       {
         n: 2,
@@ -472,7 +472,7 @@ const SCENES = [
         verdict: "disputed",
         label: "The Roman warship and boarding gangway, top left",
         explanation:
-          "Disputed by scholars. The painter gives the Roman galley a confident, specific rig — but how ancient oared warships (triremes and their larger cousins) were actually built and rowed is one of the genuinely open questions in classical scholarship. The banking of the oars, the outrigger, the ram and gangway are all reconstructed from fragmentary evidence and still argued over by naval historians. Not clearly right, not clearly wrong: a reasonable guess at something the sources never fully settle.",
+          "Disputed by scholars. The Roman galley is given a confident, specific rig — but how ancient oared warships (triremes and their larger cousins) were actually built and rowed is one of the genuinely open questions in classical scholarship. The banking of the oars, the outrigger, the ram and gangway are all reconstructed from fragmentary evidence and still argued over by naval historians. Not clearly right, not clearly wrong: a reasonable guess at something the sources never fully settle.",
       },
       {
         n: 3,
@@ -480,7 +480,7 @@ const SCENES = [
         verdict: "invented",
         label: "The soldier's Roman helmet at the left",
         explanation:
-          "Inaccurate. The helmet is the wrong silhouette for a Roman soldier of the 1st century BCE. The Montefortino and Coolus helmets of the period characteristically carried a small raised knob or top-button at the crown — not the smooth fore-and-aft ridge the painter has given it. It reads as a generic 'antique' helmet rather than the specific form the archaeology actually shows.",
+          "Inaccurate — and here's the reveal: this one isn't AI either. It's a real painting by Sir Lawrence Alma-Tadema (1885), and the human artist grades on the same scale. The helmet is the wrong silhouette for a Roman soldier of the 1st century BCE. The Montefortino and Coolus helmets of the period characteristically carried a small raised knob or top-button at the crown — not the smooth fore-and-aft ridge shown here. It reads as a generic 'antique' helmet rather than the specific form the archaeology actually shows.",
       },
     ],
   },
