@@ -86,7 +86,7 @@ const SCENES = [
       {
         n: 2,
         x: 0.925, y: 0.44,
-        verdict: "authentic",
+        verdict: "plausible",
         label: "The steep thatched-roof buildings",
         explanation:
           "Authentic. Mississippian buildings were pole-frame structures with thatched or mat-covered roofs; the form is broadly right for the period.",
@@ -102,7 +102,7 @@ const SCENES = [
       {
         n: 4,
         x: 0.155, y: 0.82,
-        verdict: "authentic",
+        verdict: "plausible",
         label: "The hand-built pottery worked in the foreground",
         explanation:
           "Authentic. Cahokians were skilled potters, making shell-tempered coil-built vessels by hand — no wheel, exactly as shown.",
@@ -156,7 +156,7 @@ const SCENES = [
       {
         n: 4,
         x: 0.505, y: 0.60,
-        verdict: "authentic",
+        verdict: "plausible",
         label: "The cart carrying bodies through the street",
         explanation:
           "Authentic. With mortality overwhelming the city, corpses were collected by cart for mass burial — a grimly accurate detail of the 1348 outbreak.",
@@ -346,7 +346,7 @@ const SCENES = [
         verdict: "authentic",
         label: "Ada Lovelace's dress and hair",
         explanation:
-          "Authentic. Her dress and hairstyle are faithful to her actual portraits — correct in isolation. The catch is in combination, once you look at the ages of the two figures.",
+          "Authentic. Her dress and hairstyle are faithful to her actual portraits.",
       },
       {
         n: 2,
@@ -362,7 +362,7 @@ const SCENES = [
         verdict: "invented",
         label: "The two figures together",
         explanation:
-          "Invented — an impossible pairing. Ada is the ~20-year-old of the 1836 Carpenter portrait; Babbage is the grey man of the 1860s photographs. Each face is faithful to a real source, but the combination can't exist: when she looked like that he was in his mid-40s, and by the time he looked like that she had been dead a decade.",
+          "Invented — an impossible pairing. Ada is the ~20-year-old of the 1836 Carpenter portrait; Babbage is the grey man of the 1860s photographs.",
       },
     ],
   },
@@ -382,7 +382,7 @@ const SCENES = [
       {
         n: 1,
         x: 0.40, y: 0.30,
-        verdict: "authentic",
+        verdict: "plausible",
         label: "The battened sails and multi-masted junk rig",
         explanation:
           "Authentic. Battened lugsails, multiple masts and the escort-vessel proportions are all well within the well-documented Chinese junk tradition.",
@@ -428,7 +428,7 @@ const SCENES = [
         verdict: "unlikely",
         label: "The hieroglyph-covered walls and columns of the hall",
         explanation:
-          "Unlikely. Gérôme walls the room in pharaonic temple reliefs and hieroglyphs, but by 48 BCE Cleopatra's court was Hellenistic Greek. The Ptolemaic royal palace at Alexandria was a Greek building of marble colonnades, and the court spoke Greek. Temple hieroglyphs still existed in Egypt, but a private audience chamber dressed like a New-Kingdom sanctuary is the 19th-century Orientalist idea of 'Egypt,' not the Greek Alexandria Caesar actually walked into — so it leans wrong.",
+          "Unlikely. Cleopatra's court was Hellenistic Greek. The Ptolemaic royal palace at Alexandria was a Greek building of marble colonnades, and the court spoke Greek. Temple hieroglyphs still existed in Egypt, but a private audience chamber dressed like a New-Kingdom sanctuary is the 19th-century Orientalist idea of 'Egypt,' not the Greek Alexandria Caesar actually walked into.",
       },
       {
         n: 2,
@@ -436,7 +436,7 @@ const SCENES = [
         verdict: "plausible",
         label: "Caesar's red cloak and dress",
         explanation:
-          "Plausible. No source records exactly what Caesar wore that day, so we can't call it authentic. But a senior Roman commander in a red cloak (the paludamentum) over a tunic is squarely in keeping with Roman military and magisterial dress. There's no evidence for this specific outfit — and none against it — so it's period-possible rather than an error.",
+          "Plausible. No source records exactly what Caesar wore that day, but a senior Roman commander in a red cloak (the paludamentum) over a tunic is squarely in keeping with Roman military and magisterial dress.",
       },
       {
         n: 3,
@@ -444,7 +444,7 @@ const SCENES = [
         verdict: "plausible",
         label: "The great patterned carpet on the floor",
         explanation:
-          "Plausible. The rolled carpet is the popular version of Cleopatra being smuggled in to Caesar — though Plutarch actually says she was carried in a bed-sack (strōmatodesmon), not a rug. As an object, though, a richly patterned carpet is entirely at home in the ancient Mediterranean and Near East. We have no evidence for this particular one, but its presence isn't anachronistic, so it's plausible, not invented.",
+          "Plausible. The rolled carpet is the popular version of Cleopatra being smuggled in to Caesar — though Plutarch actually says she was carried in a bed-sack (strōmatodesmon), not a rug. As an object, though, a richly patterned carpet is entirely at home in the ancient Mediterranean and Near East.",
       },
     ],
   },
@@ -464,7 +464,7 @@ const SCENES = [
         verdict: "unlikely",
         label: "The row of hieroglyphs along the barge's hull",
         explanation:
-          "Unlikely. Cleopatra's grand entrance at Tarsus was Ptolemaic-Greek theatre, staged for a Roman audience, and her world ran on Greek. Monumental hieroglyphs belonged to temples and formal royal monuments — not the trim of a pleasure barge on a Cilician river. Carved 'Egyptian writing' along the hull is Alma-Tadema signalling 'Egypt' to Victorian viewers more than reconstructing what Cleopatra's barge would really have carried.",
+          "Unlikely. Cleopatra's grand entrance at Tarsus was Ptolemaic-Greek theatre, staged for a Roman audience, and her world ran on Greek. Monumental hieroglyphs belonged to temples and formal royal monuments — not the trim of a pleasure barge on a Cilician river.",
       },
       {
         n: 2,
@@ -472,7 +472,7 @@ const SCENES = [
         verdict: "disputed",
         label: "The Roman warship and boarding gangway, top left",
         explanation:
-          "Disputed by scholars. The painter gives the Roman galley a confident, specific rig — but how ancient oared warships (triremes and their larger cousins) were actually built and rowed is one of the genuinely open questions in classical scholarship. The banking of the oars, the outrigger, the ram and gangway are all reconstructed from fragmentary evidence and still argued over by naval historians. Not clearly right, not clearly wrong: a reasonable guess at something the sources never fully settle.",
+          "Disputed by scholars. The painter gives the Roman galley a confident, specific rig — but how ancient oared warships were actually built and rowed is one of the genuinely open questions in classical scholarship.",
       },
       {
         n: 3,
@@ -480,7 +480,7 @@ const SCENES = [
         verdict: "invented",
         label: "The soldier's Roman helmet at the left",
         explanation:
-          "Inaccurate. The helmet is the wrong silhouette for a Roman soldier of the 1st century BCE. The Montefortino and Coolus helmets of the period characteristically carried a small raised knob or top-button at the crown — not the smooth fore-and-aft ridge the painter has given it. It reads as a generic 'antique' helmet rather than the specific form the archaeology actually shows.",
+          "Inaccurate. The helmet is the wrong silhouette for a Roman soldier of the 1st century BCE. The Montefortino and Coolus helmets of the period were plain or carried a small raised knob or top-button at the crown — not the ridge the painter has given it.,
       },
     ],
   },
