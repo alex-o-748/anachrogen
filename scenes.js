@@ -480,7 +480,7 @@ const SCENES = [
         verdict: "invented",
         label: "The soldier's Roman helmet at the left",
         explanation:
-          "Inaccurate. The helmet is the wrong silhouette for a Roman soldier of the 1st century BCE. The Montefortino and Coolus helmets of the period were plain or carried a small raised knob or top-button at the crown — not the ridge the painter has given it.,
+          "Inaccurate. The helmet is the wrong silhouette for a Roman soldier of the 1st century BCE. The Montefortino and Coolus helmets of the period were plain or carried a small raised knob or top-button at the crown — not the ridge the painter has given it.",
       },
     ],
   },
