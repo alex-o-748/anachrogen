@@ -70,6 +70,7 @@
   const soloResults    = document.getElementById("solo-results");
   const soloResScore   = document.getElementById("solo-results-score");
   const soloResSession = document.getElementById("solo-results-session");
+  const soloNextScene  = document.getElementById("solo-next-scene");
   const soloReplay     = document.getElementById("solo-replay");
   const soloMenu       = document.getElementById("solo-menu");
 
@@ -123,6 +124,37 @@
     } catch (_) { /* private mode / storage full — hiding just won't persist */ }
   }
 
+  // ---- completed scenes: which scenes the player has finished in solo mode ----
+  // Persisted so the checkmarks survive a reload and track real progress.
+  const COMPLETED_KEY = "anachrogen:completed";
+  const completedIds = loadCompleted();
+
+  function loadCompleted() {
+    try {
+      const raw = localStorage.getItem(COMPLETED_KEY);
+      return new Set(raw ? JSON.parse(raw) : []);
+    } catch (_) {
+      return new Set();
+    }
+  }
+  function saveCompleted() {
+    try {
+      localStorage.setItem(COMPLETED_KEY, JSON.stringify([...completedIds]));
+    } catch (_) { /* storage unavailable — progress just won't persist */ }
+  }
+  function markCompleted(id) {
+    if (completedIds.has(id)) return;
+    completedIds.add(id);
+    saveCompleted();
+    refreshCompletedUI();
+  }
+  // Reflect the completed set onto the gallery cards.
+  function refreshCompletedUI() {
+    gridEl.querySelectorAll(".card").forEach((card) => {
+      card.classList.toggle("is-completed", completedIds.has(card.dataset.id));
+    });
+  }
+
   // ============================ GALLERY ============================
 
   function buildGallery() {
@@ -152,11 +184,18 @@
         toggleHidden(scene.id);
       });
 
+      const done = document.createElement("span");
+      done.className = "card-done";
+      done.setAttribute("aria-hidden", "true");
+      done.innerHTML = "&#10003;"; // ✓ — shown when the scene is completed
+
       card.appendChild(open);
       card.appendChild(toggle);
+      card.appendChild(done);
       gridEl.appendChild(card);
     });
     refreshHiddenUI();
+    refreshCompletedUI();
   }
 
   function toggleHidden(id) {
@@ -464,6 +503,7 @@
     session.correct += sceneCorrect;
     session.scored  += sceneScored;
     session.scenes  += 1;
+    markCompleted(current.id);
 
     const pct = sceneScored ? Math.round((sceneCorrect / sceneScored) * 100) : 0;
     soloResScore.innerHTML = sceneScored
@@ -471,9 +511,32 @@
       : `Nothing to score on this scene.`;
     soloResSession.textContent =
       `This session: ${session.correct} / ${session.scored} correct across ${session.scenes} scene${session.scenes === 1 ? "" : "s"}.`;
+
+    // Offer a straight hop to the next scene, so play flows without a detour
+    // back through the gallery. Hidden on the last (visible) scene.
+    const next = nextPlayableScene();
+    soloNextScene.hidden = !next;
+    if (next) soloNextScene.focus(); else soloMenu.focus();
+
     soloResults.hidden = false;
     updateSoloCounter();
     updateScoreboard();
+  }
+
+  // The next non-hidden scene after the current one, or null at the end.
+  function nextPlayableScene() {
+    if (!current) return null;
+    const idx = SCENES.indexOf(current);
+    for (let i = idx + 1; i < SCENES.length; i++) {
+      if (!hiddenIds.has(SCENES[i].id)) return SCENES[i];
+    }
+    return null;
+  }
+
+  function openNextScene() {
+    const next = nextPlayableScene();
+    if (next) openScene(next);
+    else showGallery();
   }
 
   function updateSoloCounter() {
@@ -651,8 +714,11 @@
   // two buttons); once answered, Space/Enter/→ moves on; Esc leaves.
   function onSoloKey(e) {
     if (!soloResults.hidden) {
-      if (e.key === "Escape" || e.key === "ArrowLeft" ||
-          e.key === " " || e.key === "Enter" || e.key === "ArrowRight") {
+      // On the results screen: forward keys carry on to the next scene,
+      // back keys return to the gallery.
+      if (e.key === " " || e.key === "Enter" || e.key === "ArrowRight") {
+        e.preventDefault(); openNextScene();
+      } else if (e.key === "Escape" || e.key === "ArrowLeft") {
         e.preventDefault(); showGallery();
       }
       return;
@@ -691,6 +757,7 @@
   soloBtnAuth.addEventListener("click", () => soloAnswer("authentic"));
   soloBtnWrong.addEventListener("click", () => soloAnswer("wrong"));
   soloNext.addEventListener("click", soloAdvance);
+  soloNextScene.addEventListener("click", openNextScene);
   soloReplay.addEventListener("click", () => { if (current) openScene(current); });
   soloMenu.addEventListener("click", showGallery);
   scoreboardReset.addEventListener("click", resetSession);

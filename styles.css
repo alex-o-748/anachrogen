@@ -147,6 +147,26 @@ kbd {
   border-color: var(--authentic);
 }
 
+/* completed badge — a green check on scenes the player has finished (solo) */
+.card-done {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--authentic);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  place-items: center;
+  box-shadow: var(--shadow);
+  display: none;
+}
+body[data-mode="solo"] .card.is-completed .card-done { display: grid; }
+body[data-mode="solo"] .card.is-completed { border-color: var(--authentic); }
+
 /* gallery tools bar (only shown once something is hidden) */
 .gallery-tools {
   display: flex;
@@ -635,6 +655,11 @@ body[data-mode="solo"] .presenter-only { display: none !important; }
   margin: 0 0 14px;
 }
 .solo-results-actions {
+  display: grid;
+  gap: 8px;
+}
+.solo-next-scene { width: 100%; }
+.solo-results-secondary {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
