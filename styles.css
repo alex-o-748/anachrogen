@@ -517,6 +517,140 @@ kbd {
   z-index: 3;
 }
 
+/* ============================ MODE TOGGLE + SCOREBOARD ============================ */
+
+/* In solo mode the presenter reveal controls are out of the way. */
+body[data-mode="solo"] .presenter-only { display: none !important; }
+
+
+.mode-toggle {
+  display: inline-flex;
+  gap: 4px;
+  margin: 22px auto 0;
+  padding: 4px;
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.mode-btn {
+  font: inherit;
+  font-size: 0.98rem;
+  padding: 7px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.mode-btn:hover { color: var(--ink); }
+.mode-btn.is-on {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgba(40, 32, 20, 0.16);
+  font-weight: 600;
+}
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px auto 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.scoreboard-reset {
+  font: inherit;
+  font-size: 0.82rem;
+  font-family: var(--sans);
+  color: var(--ink-soft);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 12px;
+  cursor: pointer;
+}
+.scoreboard-reset:hover { background: var(--bg-deep); color: var(--ink); }
+
+/* ============================ SOLO PLAY ============================ */
+
+.solo-answer { margin-bottom: 4px; }
+.solo-question {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin: 0 0 12px;
+}
+.solo-question b { color: var(--ink); }
+.solo-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.solo-btn {
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 13px 12px;
+}
+.solo-btn-auth:hover  { background: var(--authentic); color: #fff; border-color: var(--authentic); }
+.solo-btn-wrong:hover { background: var(--invented);  color: #fff; border-color: var(--invented); }
+
+.solo-feedback {
+  margin: 12px 0 0;
+  padding: 11px 13px;
+  border-radius: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.solo-feedback.is-correct {
+  background: rgba(47, 125, 79, 0.13);
+  border: 1px solid var(--authentic);
+  color: var(--authentic);
+}
+.solo-feedback.is-wrong {
+  background: rgba(180, 48, 42, 0.12);
+  border: 1px solid var(--invented);
+  color: var(--invented);
+}
+.solo-feedback.is-neutral {
+  background: rgba(200, 135, 27, 0.13);
+  border: 1px solid var(--disputed);
+  color: var(--disputed);
+}
+.solo-feedback b { font-weight: 700; }
+#solo-next { margin-top: 12px; }
+
+.solo-results { text-align: center; }
+.solo-results-score {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+}
+.solo-results-score b { color: var(--authentic); }
+.solo-results-session {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin: 0 0 14px;
+}
+.solo-results-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* per-item correctness marks (solo mode) */
+.item-mark {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 1.05rem;
+  align-self: center;
+}
+.item.answered-correct .item-mark { color: var(--authentic); }
+.item.answered-wrong   .item-mark { color: var(--invented); }
+.item.solo-current { box-shadow: 0 0 0 2px var(--ink) inset; }
+
 /* ---------------- responsive: narrow screens ---------------- */
 @media (max-width: 900px) {
   .stage {

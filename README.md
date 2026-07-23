@@ -7,11 +7,37 @@ paintings by famous artists — and decide, for each marked detail, whether it i
 anachronisms (something from the wrong era); others are just inaccuracies that
 contradict the historical evidence.
 
-Built for a ~15-minute Wikipedia-conference session with a few dozen people and
-one shared screen. No accounts, no backend, no build step — it's plain HTML, CSS
-and JavaScript.
+It runs two ways from the same page — pick with the toggle under the title:
 
-## How it plays
+- **Play solo** (default) — a self-contained trivia game. Go marker by marker,
+  tap **Authentic** or **Got it wrong**, and get scored with the explanation
+  revealed on each answer. A running session score sits under the title.
+- **Presenter** — the original live-audience tool: no scoring, the facilitator
+  reveals verdicts one at a time for a room to debate.
+
+Built originally for a ~15-minute Wikipedia-conference session with a few dozen
+people and one shared screen, now also playable on your own. No accounts, no
+backend, no build step — it's plain HTML, CSS and JavaScript. Your mode choice
+is remembered in the browser (`localStorage`).
+
+## Playing solo (trivia mode)
+
+Pick a scene, then work through its numbered markers in order. For each one,
+choose whether the detail is **Authentic** or something the maker **got wrong**:
+
+- The five-point verdict scale collapses to a fair two-way call — *authentic* and
+  *plausible* count as **Authentic**; *invented* and *unlikely* count as
+  **got it wrong**.
+- A few details are genuinely **disputed** among scholars (or not yet keyed).
+  Those are still shown, marked **"No fixed answer,"** and left out of the score.
+- Each answer reveals the verdict badge and explanation immediately, and marks
+  the row ✓ or ✗. At the end you get a scene score, and a session total that
+  carries across scenes until you reset it (or reload).
+
+Keyboard: **←** / **1** = Authentic, **→** / **2** = Got it wrong, then
+**Space** / **→** to go to the next marker, **Esc** to leave the scene.
+
+## How it plays (presenter mode)
 
 1. **Pick a scene** from the gallery (or press a number key).
 2. The image appears with a fixed set of **numbered markers already placed**, and
