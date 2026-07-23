@@ -640,7 +640,42 @@ body[data-mode="solo"] .presenter-only { display: none !important; }
   color: var(--disputed);
 }
 .solo-feedback b { font-weight: 700; }
-#solo-next { margin-top: 12px; }
+
+/* thin bar that drains while the next marker auto-loads */
+.solo-timer {
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+.solo-timer-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--ink-soft);
+  border-radius: 999px;
+}
+/* subtle, optional shortcut past the auto-advance wait */
+.solo-skip {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 2px;
+  background: none;
+  border: 0;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.solo-skip:hover { color: var(--ink); }
+
+/* respect reduced-motion: keep the auto-advance, drop the animated bar */
+@media (prefers-reduced-motion: reduce) {
+  .solo-timer { display: none; }
+}
 
 .solo-results { text-align: center; }
 .solo-results-score {

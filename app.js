@@ -66,6 +66,8 @@
   const soloBtnAuth    = document.getElementById("solo-authentic");
   const soloBtnWrong   = document.getElementById("solo-wrong");
   const soloFeedback   = document.getElementById("solo-feedback");
+  const soloTimerEl    = document.getElementById("solo-timer");
+  const soloTimerFill  = document.getElementById("solo-timer-fill");
   const soloNext       = document.getElementById("solo-next");
   const soloResults    = document.getElementById("solo-results");
   const soloResScore   = document.getElementById("solo-results-score");
@@ -88,6 +90,7 @@
   // ---- solo play state ----
   let soloIndex = 0;         // which item the player is on
   let soloAnswered = false;  // has the current item been answered yet
+  let soloTimer = null;      // pending auto-advance timeout
   let sceneCorrect = 0;      // correct answers this scene
   let sceneScored = 0;       // scoreable items answered this scene
   // Running total for the sitting (in memory; a reload starts fresh).
@@ -258,6 +261,7 @@
   }
 
   function showGallery() {
+    clearSoloTimer();
     setComparing(false);
     current = null;
     sceneEl.hidden = true;
@@ -290,6 +294,7 @@
     updateCounter();
 
     // reset any solo UI left over from a previous scene
+    clearSoloTimer();
     soloAnswerEl.hidden = true;
     soloResults.hidden = true;
     clearSoloMarks();
@@ -424,6 +429,7 @@
   function soloShowCurrent() {
     const items = current.items;
     if (soloIndex >= items.length) { soloFinish(); return; }
+    clearSoloTimer();
     soloAnswered = false;
     const item = items[soloIndex];
 
@@ -437,6 +443,7 @@
 
     soloQuestion.innerHTML = `Marker <b>${item.n}</b> — ${escapeHtml(item.label)}`;
     soloFeedback.hidden = true;
+    soloTimerEl.hidden = true;
     soloNext.hidden = true;
     soloBtnAuth.hidden = false;
     soloBtnWrong.hidden = false;
@@ -483,19 +490,46 @@
     soloFeedback.hidden = false;
     soloBtnAuth.hidden = true;
     soloBtnWrong.hidden = true;
+
+    const last = soloIndex + 1 >= current.items.length;
     soloNext.hidden = false;
-    soloNext.textContent = (soloIndex + 1 >= current.items.length) ? "See results →" : "Next marker →";
+    soloNext.textContent = last ? "See results →" : "Skip →";
     updateSoloCounter();
-    soloNext.focus();
+
+    // Auto-advance so play flows without a click. Give a beat to register the
+    // result — longer when there's more to read — but any forward key or the
+    // Skip link moves on immediately. The explanation stays in the list row.
+    const words = item.explanation ? item.explanation.trim().split(/\s+/).length : 0;
+    const delay = Math.min(5200, Math.max(1600, 1200 + words * 220));
+    startSoloCountdown(delay);
+    soloNext.focus({ preventScroll: true });
+  }
+
+  function startSoloCountdown(delay) {
+    clearSoloTimer();
+    soloTimer = setTimeout(soloAdvance, delay);
+    // drain a thin bar from full to empty over the same window
+    soloTimerEl.hidden = false;
+    soloTimerFill.style.transition = "none";
+    soloTimerFill.style.width = "100%";
+    void soloTimerFill.offsetWidth;                 // reflow so the reset sticks
+    soloTimerFill.style.transition = `width ${delay}ms linear`;
+    soloTimerFill.style.width = "0%";
+  }
+
+  function clearSoloTimer() {
+    if (soloTimer) { clearTimeout(soloTimer); soloTimer = null; }
   }
 
   function soloAdvance() {
     if (!soloAnswered) return;
+    clearSoloTimer();
     soloIndex += 1;
     soloShowCurrent();
   }
 
   function soloFinish() {
+    clearSoloTimer();
     soloAnswerEl.hidden = true;
     listEl.querySelectorAll(".item.solo-current").forEach((el) => el.classList.remove("solo-current"));
     markersEl.querySelectorAll(".marker.is-active").forEach((el) => el.classList.remove("is-active"));
