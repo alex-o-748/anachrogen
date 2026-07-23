@@ -13,13 +13,18 @@
       <h1 class="wordmark">Anachrogen</h1>
       <p class="tagline">Spot the anachronism. Some marked details are real while others were invented.
         <strong>Authentic or anachronistic?</strong></p>
+      <div id="mode-toggle" class="mode-toggle" role="group" aria-label="Game mode">
+        <button class="mode-btn" data-mode="solo" type="button">Play solo</button>
+        <button class="mode-btn" data-mode="presenter" type="button">Presenter</button>
+      </div>
+      <div id="scoreboard" class="scoreboard" hidden>
+        <span id="scoreboard-text" class="scoreboard-text"></span>
+        <button id="scoreboard-reset" class="scoreboard-reset" type="button">Reset score</button>
+      </div>
     </header>
     <div id="gallery-tools" class="gallery-tools"><!-- hide/restore controls injected by app.js --></div>
     <div id="gallery-grid" class="gallery-grid"><!-- cards injected by app.js --></div>
-    <footer class="gallery-foot">
-      Pick a scene to begin &middot; press <kbd>1</kbd>&ndash;<kbd>9</kbd> to jump straight in &middot;
-      hover a card and press <kbd>&times;</kbd> to hide it
-    </footer>
+    <footer id="gallery-foot" class="gallery-foot"><!-- mode-specific hint injected by app.js --></footer>
   </section>
 
   <!-- ============================= SCENE ============================= -->
@@ -56,14 +61,37 @@
 
         <div class="panel-foot">
           <div id="counter" class="counter"></div>
+
+          <!-- SOLO: answer the current marker -->
+          <div id="solo-answer" class="solo-answer" hidden>
+            <p id="solo-question" class="solo-question"></p>
+            <div class="solo-choices">
+              <button id="solo-authentic" class="btn solo-btn solo-btn-auth"  type="button">&#10003; Authentic</button>
+              <button id="solo-wrong"     class="btn solo-btn solo-btn-wrong" type="button">&#10007; Got it wrong</button>
+            </div>
+            <p id="solo-feedback" class="solo-feedback" hidden></p>
+            <button id="solo-next" class="btn btn-primary" type="button" hidden>Next marker &rarr;</button>
+          </div>
+
+          <!-- SOLO: scene results -->
+          <div id="solo-results" class="solo-results" hidden>
+            <p id="solo-results-score" class="solo-results-score"></p>
+            <p id="solo-results-session" class="solo-results-session"></p>
+            <div class="solo-results-actions">
+              <button id="solo-replay" class="btn" type="button">Play again</button>
+              <button id="solo-menu"   class="btn btn-primary" type="button">More scenes &rarr;</button>
+            </div>
+          </div>
+
+          <!-- PRESENTER: reveal controls -->
           <div class="controls">
             <button id="btn-back"    class="btn"        title="Back to gallery (Esc)">&larr; Scenes</button>
-            <button id="btn-reset"   class="btn"        title="Hide all verdicts (R)">Reset</button>
-            <button id="btn-all"     class="btn"        title="Reveal every verdict (A)">Reveal all</button>
-            <button id="btn-compare" class="btn"        title="Compare with the real image (C)" hidden>Compare &#9650;&#9660;</button>
-            <button id="btn-next"    class="btn btn-primary" title="Reveal next verdict (Space / →)">Reveal next &rarr;</button>
+            <button id="btn-reset"   class="btn presenter-only" title="Hide all verdicts (R)">Reset</button>
+            <button id="btn-all"     class="btn presenter-only" title="Reveal every verdict (A)">Reveal all</button>
+            <button id="btn-compare" class="btn presenter-only" title="Compare with the real image (C)" hidden>Compare &#9650;&#9660;</button>
+            <button id="btn-next"    class="btn btn-primary presenter-only" title="Reveal next verdict (Space / →)">Reveal next &rarr;</button>
           </div>
-          <p class="hint">
+          <p class="hint presenter-only">
             <kbd>Space</kbd> reveal next &middot; <kbd>A</kbd> all &middot;
             <kbd>R</kbd> reset &middot; <kbd>C</kbd> compare &middot; <kbd>Esc</kbd> back &middot; <kbd>D</kbd> author mode
           </p>
