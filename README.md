@@ -160,10 +160,10 @@ copied to your clipboard — paste it straight into the item. Press `D` again to
   source check: the emperor's robe colour (Zhang Heng) and the single-character
   `明` banner (Treasure Fleet).
 - **Cleopatra and Caesar** (Jean-Léon Gérôme, 1866) and **The Meeting of Antony
-  and Cleopatra** (Sir Lawrence Alma-Tadema, 1885) — the closing pair, and the
-  twist: these are *real* history paintings, not AI images (flagged with
-  `attribution`). They show the same anachronistic instincts in celebrated human
-  artists. Answer keys are written; marker `x, y` are placed but worth a quick
-  check in author mode (press `D`) before presenting.
+  and Cleopatra** (Sir Lawrence Alma-Tadema, 1885) — the twist: these are *real*
+  history paintings, not AI images (flagged with `attribution`). They show the
+  same anachronistic instincts in celebrated human artists. Answer keys are
+  written; marker `x, y` are placed but worth a quick check in author mode
+  (press `D`) before presenting.
 
 All scene images live under **`assets/`**.
