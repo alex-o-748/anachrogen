@@ -76,6 +76,12 @@
   const soloReplay     = document.getElementById("solo-replay");
   const soloMenu       = document.getElementById("solo-menu");
 
+  // ---- end-of-scene Wikipedia gag ----
+  const wikiQuestionEl = document.getElementById("wiki-question");
+  const wikiYes        = document.getElementById("wiki-yes");
+  const wikiNo         = document.getElementById("wiki-no");
+  const wikiAnswer     = document.getElementById("wiki-answer");
+
   // ---- state ----
   let current = null;      // active scene object
   let revealed = 0;        // how many verdicts revealed
@@ -297,6 +303,7 @@
     clearSoloTimer();
     soloAnswerEl.hidden = true;
     soloResults.hidden = true;
+    hideWikiQuestion();
     clearSoloMarks();
 
     galleryEl.hidden = true;
@@ -398,6 +405,9 @@
     btnAll.disabled  = revealed >= total;
     btnReset.disabled = revealed === 0;
     btnNext.textContent = revealed >= total ? "All revealed" : "Reveal next →";
+    // Once every verdict is out, pose the closing Wikipedia question.
+    if (revealed >= total) { if (wikiQuestionEl.hidden) showWikiQuestion(); }
+    else hideWikiQuestion();
   }
 
   // ============================ SOLO (TRIVIA) MODE ============================
@@ -553,6 +563,7 @@
     if (next) soloNextScene.focus(); else soloMenu.focus();
 
     soloResults.hidden = false;
+    showWikiQuestion();
     updateSoloCounter();
     updateScoreboard();
   }
@@ -633,6 +644,44 @@
   function clearFocus() {
     listEl.querySelectorAll(".item.is-active").forEach((el) => el.classList.remove("is-active"));
     markersEl.querySelectorAll(".marker.is-active").forEach((el) => el.classList.remove("is-active"));
+  }
+
+  // ============================ END-OF-SCENE WIKIPEDIA GAG ============================
+  // Once a scene is done, ask the closing question. The punchline depends on
+  // whether the image is AI-generated (no `attribution`) or a real painting that
+  // is *already* an illustration on Wikipedia (has `attribution`).
+
+  function showWikiQuestion() {
+    wikiAnswer.hidden = true;
+    wikiAnswer.textContent = "";
+    wikiYes.hidden = false;
+    wikiNo.hidden = false;
+    wikiYes.disabled = false;
+    wikiNo.disabled = false;
+    wikiQuestionEl.hidden = false;
+  }
+
+  function hideWikiQuestion() {
+    wikiQuestionEl.hidden = true;
+  }
+
+  function wikiRespond(choice) {
+    if (!current || wikiQuestionEl.hidden || wikiYes.disabled) return;
+    const isReal = !!current.attribution;   // a real painting, already on Wikipedia
+    let msg;
+    if (isReal) {
+      msg = choice === "yes"
+        ? "Don't worry — it's already there."
+        : "Too bad — it's already there.";
+    } else {
+      msg = choice === "yes"
+        ? "Try your luck uploading it to Commons."
+        : "Fair enough.";
+    }
+    wikiAnswer.textContent = msg;
+    wikiAnswer.hidden = false;
+    wikiYes.disabled = true;
+    wikiNo.disabled = true;
   }
 
   // ============================ REFERENCE / COMPARE ============================
@@ -794,6 +843,8 @@
   soloNextScene.addEventListener("click", openNextScene);
   soloReplay.addEventListener("click", () => { if (current) openScene(current); });
   soloMenu.addEventListener("click", showGallery);
+  wikiYes.addEventListener("click", () => wikiRespond("yes"));
+  wikiNo.addEventListener("click", () => wikiRespond("no"));
   scoreboardReset.addEventListener("click", resetSession);
   modeToggle.addEventListener("click", (e) => {
     const btn = e.target.closest(".mode-btn");
